@@ -1,0 +1,2066 @@
+<!DOCTYPE html>
+<html lang="ja" data-theme="pastel-pink">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PINK STAR TYPE ✨ かわいい日本語タイピング練習</title>
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Google Fonts: Zen Maru Gothic & M PLUS Rounded 1c for Japanese + Fredoka & JetBrains Mono -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@500;600;700&family=JetBrains+Mono:wght@500;600&family=M+PLUS+Rounded+1c:wght@500;700;800&family=Zen+Maru+Gothic:wght@500;700;900&display=swap" rel="stylesheet">
+
+    <style>
+        /* =========================================================
+           1. PASTEL KAWAII THEME TOKENS
+           ========================================================= */
+        :root, [data-theme="pastel-pink"] {
+            --bg-gradient: linear-gradient(135deg, #fff4f8 0%, #f4eeff 52%, #ebf8ff 100%);
+            --card-bg: rgba(255, 255, 255, 0.90);
+            --card-border: #ffd2e5;
+            --primary: #ff69a3;
+            --primary-hover: #f74c90;
+            --primary-shadow: #d93b7b;
+            --primary-soft: #ffe6f0;
+            --secondary: #7cc6fe;
+            --secondary-soft: #e3f4ff;
+            --accent: #b388ff;
+            --accent-soft: #f0e8ff;
+            --cream: #fffdf7;
+            --text-main: #443547;
+            --text-muted: #847287;
+            --correct-bg: #dcfce7;
+            --correct-text: #15803d;
+            --incorrect-bg: #ffe4e6;
+            --incorrect-text: #e11d48;
+            --composing-bg: #fef3c7;
+            --composing-text: #b45309;
+        }
+
+        [data-theme="baby-blue"] {
+            --bg-gradient: linear-gradient(135deg, #ebf8ff 0%, #f4f1ff 50%, #fff8ee 100%);
+            --card-bg: rgba(255, 255, 255, 0.92);
+            --card-border: #bae6fd;
+            --primary: #38bdf8;
+            --primary-hover: #0ea5e9;
+            --primary-shadow: #0284c7;
+            --primary-soft: #e0f2fe;
+            --secondary: #f472b6;
+            --secondary-soft: #fce7f3;
+            --accent: #a78bfa;
+            --accent-soft: #ede9fe;
+            --cream: #fffef9;
+            --text-main: #334155;
+            --text-muted: #64748b;
+            --correct-bg: #dcfce7;
+            --correct-text: #15803d;
+            --incorrect-bg: #ffe4e6;
+            --incorrect-text: #e11d48;
+            --composing-bg: #fef3c7;
+            --composing-text: #b45309;
+        }
+
+        [data-theme="lavender-dream"] {
+            --bg-gradient: linear-gradient(135deg, #f5f0ff 0%, #fff0f7 50%, #eef9ff 100%);
+            --card-bg: rgba(255, 255, 255, 0.90);
+            --card-border: #ddd6fe;
+            --primary: #9b72ff;
+            --primary-hover: #8354f8;
+            --primary-shadow: #6333d6;
+            --primary-soft: #ede9fe;
+            --secondary: #f9a8d4;
+            --secondary-soft: #fdf2f8;
+            --accent: #67e8f9;
+            --accent-soft: #ecfeff;
+            --cream: #fffdf9;
+            --text-main: #3a3054;
+            --text-muted: #786d96;
+            --correct-bg: #dcfce7;
+            --correct-text: #15803d;
+            --incorrect-bg: #ffe4e6;
+            --incorrect-text: #e11d48;
+            --composing-bg: #fef3c7;
+            --composing-text: #b45309;
+        }
+
+        [data-theme="strawberry-cream"] {
+            --bg-gradient: linear-gradient(135deg, #fffaf0 0%, #fff0f3 55%, #f4f1ff 100%);
+            --card-bg: rgba(255, 253, 249, 0.92);
+            --card-border: #fed7aa;
+            --primary: #fb7185;
+            --primary-hover: #f43f5e;
+            --primary-shadow: #be123c;
+            --primary-soft: #ffe4e6;
+            --secondary: #fcd34d;
+            --secondary-soft: #fef3c7;
+            --accent: #c084fc;
+            --accent-soft: #f3e8ff;
+            --cream: #fffbeb;
+            --text-main: #4a3539;
+            --text-muted: #8a7075;
+            --correct-bg: #dcfce7;
+            --correct-text: #15803d;
+            --incorrect-bg: #fee2e2;
+            --incorrect-text: #dc2626;
+            --composing-bg: #fef3c7;
+            --composing-text: #b45309;
+        }
+
+        /* =========================================================
+           2. JAPANESE & DISPLAY TYPOGRAPHY
+           ========================================================= */
+        body {
+            font-family: 'M PLUS Rounded 1c', 'Zen Maru Gothic', sans-serif;
+            background: var(--bg-gradient);
+            color: var(--text-main);
+            min-height: 100vh;
+            transition: background 0.4s ease, color 0.3s ease;
+            overflow-x: hidden;
+        }
+
+        .font-display {
+            font-family: 'Fredoka', 'Zen Maru Gothic', sans-serif;
+        }
+
+        .font-jp {
+            font-family: 'Zen Maru Gothic', 'M PLUS Rounded 1c', sans-serif;
+        }
+
+        .font-romaji {
+            font-family: 'JetBrains Mono', monospace;
+        }
+
+        /* =========================================================
+           3. KAWAII CARDS, BUTTONS & ANIMATIONS
+           ========================================================= */
+        .kawaii-card {
+            background: var(--card-bg);
+            backdrop-filter: blur(12px);
+            border: 2px solid var(--card-border);
+            border-radius: 1.5rem;
+            box-shadow: 0 10px 26px -6px rgba(255, 105, 163, 0.10), 0 4px 12px -2px rgba(124, 198, 254, 0.12);
+            transition: transform 0.2s ease, border-color 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .kawaii-btn {
+            font-family: 'Fredoka', 'M PLUS Rounded 1c', sans-serif;
+            background: var(--primary);
+            color: #ffffff;
+            box-shadow: 0 4px 0 var(--primary-shadow);
+            transition: all 0.15s ease;
+            border-radius: 1rem;
+        }
+
+        .kawaii-btn:hover:not(:disabled) {
+            background: var(--primary-hover);
+            transform: translateY(-1px);
+        }
+
+        .kawaii-btn:active:not(:disabled) {
+            transform: translateY(3px);
+            box-shadow: 0 1px 0 var(--primary-shadow);
+        }
+
+        .kawaii-btn:disabled {
+            opacity: 0.48;
+            cursor: not-allowed;
+        }
+
+        .kawaii-btn-soft {
+            background: var(--primary-soft);
+            color: var(--primary-hover);
+            border: 2px solid var(--card-border);
+            border-radius: 1rem;
+            font-family: 'Fredoka', 'M PLUS Rounded 1c', sans-serif;
+            transition: all 0.15s ease;
+        }
+
+        .kawaii-btn-soft:hover:not(:disabled) {
+            transform: translateY(-1px);
+            filter: brightness(0.97);
+        }
+
+        .nav-pill.active {
+            background: var(--primary);
+            color: #ffffff;
+            box-shadow: 0 3px 10px rgba(255, 105, 163, 0.30);
+        }
+
+        .option-pill.active {
+            background: var(--primary);
+            color: #ffffff;
+            border-color: var(--primary);
+            box-shadow: 0 2px 8px rgba(255, 105, 163, 0.25);
+        }
+
+        /* Floating Star Mascot Animations */
+        @keyframes floatBob {
+            0%, 100% { transform: translateY(0px) rotate(0deg); }
+            50% { transform: translateY(-6px) rotate(2.5deg); }
+        }
+
+        @keyframes happyBounce {
+            0%, 100% { transform: scale(1) translateY(0); }
+            40% { transform: scale(1.12) translateY(-10px); }
+            70% { transform: scale(0.96) translateY(2px); }
+        }
+
+        .mascot-float {
+            animation: floatBob 3.2s ease-in-out infinite;
+        }
+
+        .mascot-cheer {
+            animation: happyBounce 0.6s ease;
+        }
+
+        /* Character Highlight Spans */
+        .char-span {
+            display: inline-block;
+            border-radius: 6px;
+            padding: 1px 2px;
+            margin: 0 0.5px;
+            transition: background-color 0.08s ease, color 0.08s ease;
+        }
+
+        .char-correct {
+            background-color: var(--correct-bg);
+            color: var(--correct-text);
+        }
+
+        .char-incorrect {
+            background-color: var(--incorrect-bg);
+            color: var(--incorrect-text);
+            text-decoration: underline wavy var(--incorrect-text);
+        }
+
+        .char-composing {
+            background-color: var(--composing-bg);
+            color: var(--composing-text);
+            border-bottom: 2px dashed #d97706;
+        }
+
+        .char-current {
+            background-color: var(--primary-soft);
+            border-bottom: 3px solid var(--primary);
+            animation: caretBlink 1s infinite;
+        }
+
+        @keyframes caretBlink {
+            0%, 100% { border-bottom-color: var(--primary); }
+            50% { border-bottom-color: transparent; }
+        }
+
+        .bg-sparkle {
+            position: fixed;
+            pointer-events: none;
+            z-index: 0;
+            opacity: 0.45;
+            animation: floatBob 5s ease-in-out infinite;
+        }
+    </style>
+</head>
+<body class="relative selection:bg-pink-200 selection:text-pink-900">
+
+    <!-- Floating Pastel Sparkles -->
+    <div class="bg-sparkle top-14 left-8 text-pink-300 text-2xl select-none" aria-hidden="true">✦</div>
+    <div class="bg-sparkle top-36 right-10 text-sky-300 text-3xl select-none" style="animation-delay: 1s;" aria-hidden="true">★</div>
+    <div class="bg-sparkle bottom-24 left-14 text-purple-300 text-2xl select-none" style="animation-delay: 2s;" aria-hidden="true">✧</div>
+    <div class="bg-sparkle bottom-14 right-20 text-amber-300 text-2xl select-none" style="animation-delay: 1.5s;" aria-hidden="true">✦</div>
+
+    <!-- =========================================================
+         TOP NAVIGATION BAR
+         ========================================================= -->
+    <header class="sticky top-0 z-30 backdrop-blur-md bg-white/80 border-b border-[var(--card-border)]">
+        <div class="max-w-6xl mx-auto px-4 py-3 flex flex-wrap items-center justify-between gap-3">
+            
+            <!-- Brand Logo & Original Star Mascot Emblem -->
+            <div class="flex items-center gap-2.5 cursor-pointer" onclick="switchView('practice')">
+                <div class="w-10 h-10 rounded-2xl bg-[var(--primary-soft)] border-2 border-[var(--card-border)] flex items-center justify-center shadow-sm">
+                    <svg class="w-7 h-7" viewBox="0 0 64 64" fill="none">
+                        <path d="M32 6L39.6 21.8L57 24.2L44.4 36.4L47.5 53.8L32 45.5L16.5 53.8L19.6 36.4L7 24.2L24.4 21.8L32 6Z" fill="#FFE082" stroke="#F59E0B" stroke-width="3" stroke-linejoin="round"/>
+                        <circle cx="26" cy="31" r="2.5" fill="#443547"/>
+                        <circle cx="38" cy="31" r="2.5" fill="#443547"/>
+                        <ellipse cx="22" cy="34.5" rx="2.5" ry="1.5" fill="#FF8FAB"/>
+                        <ellipse cx="42" cy="34.5" rx="2.5" ry="1.5" fill="#FF8FAB"/>
+                        <path d="M29.5 34.5C30.5 36 33.5 36 34.5 34.5" stroke="#443547" stroke-width="2" stroke-linecap="round"/>
+                    </svg>
+                </div>
+                <div>
+                    <h1 class="font-display text-xl sm:text-2xl font-bold tracking-tight text-[var(--primary)] leading-none">
+                        PINK STAR TYPE
+                    </h1>
+                    <p class="text-[11px] font-bold text-[var(--text-muted)]">
+                        日本語タイピング・アカデミー ✨
+                    </p>
+                </div>
+            </div>
+
+            <!-- Navigation Tabs -->
+            <nav class="flex items-center gap-1.5 bg-[var(--cream)] p-1.5 rounded-2xl border border-[var(--card-border)] overflow-x-auto max-w-full" aria-label="Main Navigation">
+                <button id="nav-practice" onclick="switchView('practice')" class="nav-pill active px-3.5 py-1.5 rounded-xl text-xs sm:text-sm font-bold transition cursor-pointer whitespace-nowrap">
+                    ⌨️ 練習 (Practice)
+                </button>
+                <button id="nav-dashboard" onclick="switchView('dashboard')" class="nav-pill px-3.5 py-1.5 rounded-xl text-xs sm:text-sm font-bold text-[var(--text-main)] hover:bg-[var(--primary-soft)] transition cursor-pointer whitespace-nowrap">
+                    📊 記録・バッジ (Stats)
+                </button>
+                <button id="nav-guide" onclick="switchView('guide')" class="nav-pill px-3.5 py-1.5 rounded-xl text-xs sm:text-sm font-bold text-[var(--text-main)] hover:bg-[var(--primary-soft)] transition cursor-pointer whitespace-nowrap">
+                    📖 使い方 (Guide)
+                </button>
+            </nav>
+
+            <!-- Right Controls: Star Wallet, Sound Toggle, Theme Selector -->
+            <div class="flex items-center gap-2">
+                <div class="flex items-center gap-1.5 px-3 py-1.5 rounded-xl bg-amber-50 border border-amber-200 text-amber-700 font-bold text-sm" title="獲得したスター数 (Total Stars)">
+                    <span>⭐</span>
+                    <span id="headerStarCount">0</span>
+                </div>
+
+                <button id="soundToggleBtn" onclick="toggleSound()" class="p-2 rounded-xl bg-[var(--cream)] border border-[var(--card-border)] hover:bg-[var(--primary-soft)] transition cursor-pointer" title="効果音 ON/OFF">
+                    <span id="soundIcon" class="text-base">🔊</span>
+                </button>
+
+                <select id="themeSelect" onchange="changeTheme(this.value)" aria-label="テーマ選択" class="px-2.5 py-1.5 rounded-xl bg-[var(--cream)] border border-[var(--card-border)] text-xs sm:text-sm font-bold text-[var(--text-main)] cursor-pointer focus:outline-none focus:ring-2 focus:ring-[var(--primary)]">
+                    <option value="pastel-pink">🌸 さくらピンク</option>
+                    <option value="baby-blue">☁️ ベビーブルー</option>
+                    <option value="lavender-dream">🦄 ラベンダー</option>
+                    <option value="strawberry-cream">🍓 クリーム</option>
+                </select>
+            </div>
+        </div>
+    </header>
+
+    <!-- =========================================================
+         MAIN CONTENT AREA
+         ========================================================= -->
+    <main class="relative z-10 max-w-6xl mx-auto px-4 py-6 sm:py-8">
+
+        <!-- =====================================================
+             VIEW 1: JAPANESE TYPING PRACTICE ARENA
+             ===================================================== -->
+        <section id="view-practice" class="space-y-5">
+
+            <!-- Top Row: Original Mascot "Hoshimi" + Daily Japanese Challenge -->
+            <div class="grid grid-cols-1 lg:grid-cols-12 gap-5 items-stretch">
+                
+                <!-- Mascot Companion Card (7 cols) -->
+                <div class="lg:col-span-7 kawaii-card p-5 flex items-center gap-4 sm:gap-5">
+                    <!-- Original Mascot: "Hoshimi" the Pastel Star Sprite -->
+                    <div id="mascotContainer" class="shrink-0 w-24 h-24 sm:w-28 sm:h-28 rounded-3xl bg-gradient-to-br from-[var(--primary-soft)] via-[var(--accent-soft)] to-[var(--secondary-soft)] border-2 border-[var(--card-border)] flex items-center justify-center shadow-inner mascot-float">
+                        <svg class="w-20 h-20 sm:w-24 sm:h-24" viewBox="0 0 120 120" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <!-- Starlight Crown Halo -->
+                            <ellipse cx="60" cy="17" rx="19" ry="4.5" stroke="#F472B6" stroke-width="2.5" stroke-dasharray="4 3"/>
+                            <!-- Little Cloud Wings -->
+                            <path d="M24 58C12 52 8 64 18 70C12 74 16 82 26 76" fill="#FFFFFF" stroke="#BAE6FD" stroke-width="2.5" stroke-linecap="round"/>
+                            <path d="M96 58C108 52 112 64 102 70C108 74 104 82 94 76" fill="#FFFFFF" stroke="#BAE6FD" stroke-width="2.5" stroke-linecap="round"/>
+                            <!-- Rounded 5-Point Star Body -->
+                            <path d="M60 22C63 22 69 40 72 42C75 44 95 45 96 48C97 51 82 64 81 68C80 72 86 91 83 93C80 95 64 84 60 84C56 84 40 95 37 93C34 91 40 72 39 68C38 64 23 51 24 48C25 45 45 44 48 42C51 40 57 22 60 22Z" fill="#FFE082" stroke="#F59E0B" stroke-width="3.5" stroke-linejoin="round"/>
+                            <!-- Sakura Ribbon Hairpin -->
+                            <path d="M45 36C39 31 35 37 41 41C36 45 41 50 46 44" fill="#FF8FAB" stroke="#E11D48" stroke-width="2"/>
+                            <circle cx="45.5" cy="40.5" r="2.8" fill="#FFE4E6" stroke="#E11D48" stroke-width="1.8"/>
+                            <!-- Kawaii Eyes (Normal) -->
+                            <g id="mascotEyesNormal">
+                                <ellipse cx="50" cy="58" rx="3.8" ry="4.8" fill="#443547"/>
+                                <circle cx="48.8" cy="56.2" r="1.4" fill="#FFFFFF"/>
+                                <ellipse cx="70" cy="58" rx="3.8" ry="4.8" fill="#443547"/>
+                                <circle cx="68.8" cy="56.2" r="1.4" fill="#FFFFFF"/>
+                            </g>
+                            <!-- Happy Sparkle Eyes -->
+                            <g id="mascotEyesHappy" class="hidden">
+                                <path d="M45 59C47 54 53 54 55 59" stroke="#443547" stroke-width="3" stroke-linecap="round"/>
+                                <path d="M65 59C67 54 73 54 75 59" stroke="#443547" stroke-width="3" stroke-linecap="round"/>
+                            </g>
+                            <!-- Rosy Cheeks -->
+                            <ellipse cx="42" cy="64" rx="4.5" ry="2.6" fill="#FF8FAB" opacity="0.75"/>
+                            <ellipse cx="78" cy="64" rx="4.5" ry="2.6" fill="#FF8FAB" opacity="0.75"/>
+                            <!-- Cute Smile -->
+                            <path d="M55 65Q57.5 68 60 65Q62.5 68 65 65" stroke="#443547" stroke-width="2.4" stroke-linecap="round" fill="none"/>
+                        </svg>
+                    </div>
+
+                    <!-- Mascot Dialogue -->
+                    <div class="flex-1">
+                        <div class="flex flex-wrap items-center gap-2 mb-1">
+                            <span class="px-2.5 py-0.5 rounded-full text-xs font-extrabold bg-[var(--primary-soft)] text-[var(--primary-hover)]">
+                                星の妖精 ホシミ (Hoshimi)
+                            </span>
+                            <span id="modeIndicatorBadge" class="px-2.5 py-0.5 rounded-full text-xs font-bold bg-[var(--accent-soft)] text-purple-700">
+                                初級 • 30秒チャレンジ
+                            </span>
+                        </div>
+                        <p id="mascotSpeech" class="text-sm sm:text-base font-bold text-[var(--text-main)] leading-snug">
+                            「こんにちは！ローマ字入力でも、日本語IME直接入力でも練習できるよ。好きなモードを選んでね！」
+                        </p>
+                    </div>
+                </div>
+
+                <!-- Daily Japanese Challenge Card (5 cols) -->
+                <div class="lg:col-span-5 kawaii-card p-5 flex flex-col justify-between bg-gradient-to-br from-white/95 to-[var(--accent-soft)]">
+                    <div>
+                        <div class="flex items-center justify-between gap-2 mb-1.5">
+                            <span class="inline-flex items-center gap-1.5 text-xs font-extrabold text-purple-700 bg-purple-100 px-2.5 py-1 rounded-full">
+                                🌟 デイリー日本語クエスト
+                            </span>
+                            <span id="dailyStatusBadge" class="text-xs font-bold px-2.5 py-0.5 rounded-full bg-amber-100 text-amber-800">
+                                +5 ボーナス ⭐
+                            </span>
+                        </div>
+                        <p class="text-xs sm:text-sm font-bold text-[var(--text-main)] mt-1">
+                            今日の特別な日本語フレーズを正確率92%以上でクリアしよう！
+                        </p>
+                    </div>
+
+                    <div class="mt-3 flex items-center justify-between gap-2">
+                        <span id="dailyDateLabel" class="text-xs font-semibold text-[var(--text-muted)]">Today's Quest</span>
+                        <button id="startDailyBtn" onclick="activateDailyChallenge()" class="kawaii-btn-soft px-3.5 py-1.5 text-xs sm:text-sm font-bold cursor-pointer">
+                            ✨ デイリーに挑戦
+                        </button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Configuration Panel: Input Method, Level, Category & Timer Mode -->
+            <div class="kawaii-card p-4 sm:p-5 space-y-4">
+                
+                <!-- Row 1: Input System (Romaji vs Direct IME) & Learning Level -->
+                <div class="flex flex-wrap items-center justify-between gap-3">
+                    
+                    <!-- Input Mode Selector -->
+                    <div class="flex flex-wrap items-center gap-1.5 bg-[var(--cream)] p-1.5 rounded-2xl border border-[var(--card-border)]">
+                        <span class="text-xs font-extrabold text-[var(--text-muted)] px-2">⌨️ 入力方式:</span>
+                        <button onclick="setInputMode('romaji')" data-inputmode="romaji" class="inputmode-btn option-pill active px-3 py-1 rounded-xl text-xs sm:text-sm font-bold transition cursor-pointer">
+                            🔤 ローマ字入力 (Romaji)
+                        </button>
+                        <button onclick="setInputMode('ime')" data-inputmode="ime" class="inputmode-btn option-pill px-3 py-1 rounded-xl text-xs sm:text-sm font-bold text-[var(--text-main)] transition cursor-pointer">
+                            🇯🇵 日本語IME入力 (かな/漢字)
+                        </button>
+                    </div>
+
+                    <!-- Learning Level Selector (Beginner / Intermediate / Advanced) -->
+                    <div class="flex flex-wrap items-center gap-1.5 bg-[var(--cream)] p-1.5 rounded-2xl border border-[var(--card-border)]">
+                        <span class="text-xs font-extrabold text-[var(--text-muted)] px-2">🎀 レベル:</span>
+                        <button onclick="setLevel('beginner')" data-level="beginner" class="level-btn option-pill active px-3 py-1 rounded-xl text-xs sm:text-sm font-bold transition cursor-pointer">
+                            🌱 初級 (Beginner)
+                        </button>
+                        <button onclick="setLevel('intermediate')" data-level="intermediate" class="level-btn option-pill px-3 py-1 rounded-xl text-xs sm:text-sm font-bold text-[var(--text-main)] transition cursor-pointer">
+                            🌸 中級 (Intermediate)
+                        </button>
+                        <button onclick="setLevel('advanced')" data-level="advanced" class="level-btn option-pill px-3 py-1 rounded-xl text-xs sm:text-sm font-bold text-[var(--text-main)] transition cursor-pointer">
+                            👑 上級 (JLPT N2/N1)
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Row 2: Practice Content Category & Timer Duration -->
+                <div class="flex flex-wrap items-center justify-between gap-3 pt-2 border-t border-[var(--card-border)]">
+                    
+                    <!-- Content Category Selector -->
+                    <div class="flex flex-wrap items-center gap-1.5 bg-[var(--cream)] p-1.5 rounded-2xl border border-[var(--card-border)]">
+                        <span class="text-xs font-extrabold text-[var(--text-muted)] px-2">📚 練習内容:</span>
+                        <button onclick="setCategory('mixed')" data-category="mixed" class="category-btn option-pill active px-2.5 py-1 rounded-xl text-xs font-bold transition cursor-pointer">
+                            🎲 ランダム総合
+                        </button>
+                        <button onclick="setCategory('kana')" data-category="kana" class="category-btn option-pill px-2.5 py-1 rounded-xl text-xs font-bold text-[var(--text-main)] transition cursor-pointer">
+                            あア ひらがな・カタカナ
+                        </button>
+                        <button onclick="setCategory('vocab')" data-category="vocab" class="category-btn option-pill px-2.5 py-1 rounded-xl text-xs font-bold text-[var(--text-main)] transition cursor-pointer">
+                            漢 単語・漢字読み
+                        </button>
+                        <button onclick="setCategory('conversation')" data-category="conversation" class="category-btn option-pill px-2.5 py-1 rounded-xl text-xs font-bold text-[var(--text-main)] transition cursor-pointer">
+                            💬 文章・日常会話
+                        </button>
+                    </div>
+
+                    <!-- Timer Mode Selector (30s, 60s, 120s, Unlimited) -->
+                    <div class="flex flex-wrap items-center gap-1.5 bg-[var(--cream)] p-1.5 rounded-2xl border border-[var(--card-border)]">
+                        <span class="text-xs font-extrabold text-[var(--text-muted)] px-2">⏱️ 時間:</span>
+                        <button onclick="setDuration(30)" data-duration="30" class="duration-btn option-pill active px-2.5 py-1 rounded-xl text-xs font-bold transition cursor-pointer">30秒</button>
+                        <button onclick="setDuration(60)" data-duration="60" class="duration-btn option-pill px-2.5 py-1 rounded-xl text-xs font-bold text-[var(--text-main)] transition cursor-pointer">60秒</button>
+                        <button onclick="setDuration(120)" data-duration="120" class="duration-btn option-pill px-2.5 py-1 rounded-xl text-xs font-bold text-[var(--text-main)] transition cursor-pointer">120秒</button>
+                        <button onclick="setDuration(0)" data-duration="0" class="duration-btn option-pill px-2.5 py-1 rounded-xl text-xs font-bold text-[var(--text-main)] transition cursor-pointer">∞ 無制限</button>
+                    </div>
+                </div>
+
+                <!-- Row 3: Session Action Controls -->
+                <div class="flex flex-wrap items-center justify-between gap-3 pt-2 border-t border-[var(--card-border)]">
+                    <div class="flex items-center gap-2 text-xs font-bold text-[var(--text-muted)]">
+                        <label class="inline-flex items-center gap-1.5 cursor-pointer select-none">
+                            <input type="checkbox" id="toggleRomajiGuide" checked onchange="renderCurrentPrompt()" class="accent-[var(--primary)] w-4 h-4 rounded cursor-pointer">
+                            <span>ふりがな・ローマ字ガイドを表示 (Show Reading & Romaji Guide)</span>
+                        </label>
+                    </div>
+
+                    <div class="flex flex-wrap items-center gap-2">
+                        <button id="startBtn" onclick="startSession()" class="kawaii-btn px-4 py-2 text-xs sm:text-sm font-bold cursor-pointer flex items-center gap-1.5">
+                            ▶ スタート
+                        </button>
+                        <button id="pauseBtn" onclick="togglePauseSession()" disabled class="kawaii-btn-soft px-3.5 py-2 text-xs sm:text-sm font-bold cursor-pointer flex items-center gap-1.5">
+                            ⏸ 一時停止
+                        </button>
+                        <button id="restartBtn" onclick="resetSession(false)" class="kawaii-btn-soft px-3.5 py-2 text-xs sm:text-sm font-bold cursor-pointer flex items-center gap-1.5">
+                            🔄 リセット
+                        </button>
+                        <button id="finishBtn" onclick="finishSession()" disabled class="px-3.5 py-2 rounded-2xl bg-emerald-500 hover:bg-emerald-600 disabled:opacity-45 text-white font-display text-xs sm:text-sm font-bold transition cursor-pointer flex items-center gap-1.5 shadow-sm">
+                            🏁 終了・結果を見る
+                        </button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Live Performance Statistics Bar (CPM, Accuracy, Correct, Errors, Total) -->
+            <div class="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-6 gap-3">
+                <div class="kawaii-card p-3.5 text-center border-b-4 border-b-[var(--primary)]">
+                    <div class="text-[11px] font-extrabold text-[var(--text-muted)]">⏳ 残り時間 (Time)</div>
+                    <div id="statTimer" class="font-display text-2xl sm:text-3xl font-bold text-[var(--primary)] mt-0.5">30s</div>
+                </div>
+
+                <div class="kawaii-card p-3.5 text-center border-b-4 border-b-sky-400">
+                    <div class="text-[11px] font-extrabold text-[var(--text-muted)]">⚡ 速度 (CPM/分)</div>
+                    <div id="statCpm" class="font-display text-2xl sm:text-3xl font-bold text-sky-600 mt-0.5">0</div>
+                </div>
+
+                <div class="kawaii-card p-3.5 text-center border-b-4 border-b-purple-400">
+                    <div class="text-[11px] font-extrabold text-[var(--text-muted)]">🎯 正確率 (Acc)</div>
+                    <div id="statAccuracy" class="font-display text-2xl sm:text-3xl font-bold text-purple-600 mt-0.5">100%</div>
+                </div>
+
+                <div class="kawaii-card p-3.5 text-center border-b-4 border-b-emerald-400">
+                    <div class="text-[11px] font-extrabold text-[var(--text-muted)]">✅ 正解文字 (OK)</div>
+                    <div id="statCorrect" class="font-display text-2xl sm:text-3xl font-bold text-emerald-600 mt-0.5">0</div>
+                </div>
+
+                <div class="kawaii-card p-3.5 text-center border-b-4 border-b-rose-400">
+                    <div class="text-[11px] font-extrabold text-[var(--text-muted)]">❌ ミス (Errors)</div>
+                    <div id="statIncorrect" class="font-display text-2xl sm:text-3xl font-bold text-rose-500 mt-0.5">0</div>
+                </div>
+
+                <div class="kawaii-card p-3.5 text-center border-b-4 border-b-amber-400">
+                    <div class="text-[11px] font-extrabold text-[var(--text-muted)]">📝 総入力 (Total)</div>
+                    <div id="statTotal" class="font-display text-2xl sm:text-3xl font-bold text-amber-600 mt-0.5">0</div>
+                </div>
+            </div>
+
+            <!-- Interactive Japanese Typing Stage -->
+            <div class="kawaii-card p-5 sm:p-7 relative">
+                <!-- Progress Bar -->
+                <div class="w-full h-2.5 bg-[var(--primary-soft)] rounded-full overflow-hidden mb-5">
+                    <div id="promptProgressBar" class="h-full bg-gradient-to-r from-[var(--primary)] via-[var(--accent)] to-[var(--secondary)] transition-all duration-150 rounded-full" style="width: 0%;"></div>
+                </div>
+
+                <!-- Pause Overlay -->
+                <div id="pauseOverlay" class="hidden absolute inset-0 z-20 bg-white/85 backdrop-blur-sm rounded-3xl flex flex-col items-center justify-center p-6 text-center">
+                    <div class="text-4xl mb-2">⏸️🌸</div>
+                    <h3 class="text-2xl font-bold text-[var(--primary)] mb-1">一時停止中 (Paused)</h3>
+                    <p class="text-sm text-[var(--text-muted)] mb-4">ひと休みしたら、再開ボタンを押してね！</p>
+                    <button onclick="togglePauseSession()" class="kawaii-btn px-6 py-2.5 text-base font-bold cursor-pointer">
+                        ▶ 練習を再開する
+                    </button>
+                </div>
+
+                <!-- Prompt Display Box -->
+                <div id="typingTargetBox" onclick="focusTypingInput()" class="bg-[var(--cream)] border-2 border-[var(--card-border)] rounded-2xl p-5 sm:p-6 min-h-[185px] flex flex-col justify-center cursor-text select-none shadow-inner space-y-3">
+                    <!-- Category Tag & Meaning -->
+                    <div class="flex flex-wrap items-center justify-between gap-2">
+                        <span id="promptCategoryTag" class="px-2.5 py-0.5 rounded-lg text-xs font-extrabold bg-[var(--secondary-soft)] text-sky-700">
+                            ひらがな・単語
+                        </span>
+                        <span id="promptMeaningHint" class="text-xs font-bold text-[var(--text-muted)]">
+                            Meaning: Cherry blossom
+                        </span>
+                    </div>
+
+                    <!-- Furigana / Kana Reading Guide -->
+                    <div id="promptReadingBox" class="font-jp text-sm sm:text-base font-bold text-[var(--primary)] tracking-wider">
+                        さくら
+                    </div>
+
+                    <!-- Main Japanese Target Text (Character Spans) -->
+                    <div id="promptMainChars" class="font-jp text-2xl sm:text-3xl md:text-4xl font-bold leading-relaxed tracking-wide text-[var(--text-main)] break-words">
+                        <!-- Injected dynamically -->
+                    </div>
+
+                    <!-- Romaji Guide / Live Romaji Progress -->
+                    <div id="promptRomajiBox" class="font-romaji text-sm sm:text-base font-semibold text-[var(--text-muted)] bg-white/80 px-3 py-1.5 rounded-xl border border-[var(--card-border)] inline-block w-fit max-w-full overflow-x-auto">
+                        sakura
+                    </div>
+                </div>
+
+                <!-- Input Field & IME Status Indicator -->
+                <div class="mt-4 flex flex-col sm:flex-row items-stretch sm:items-center gap-3">
+                    <div class="relative flex-1">
+                        <input
+                            id="typingInput"
+                            type="text"
+                            autocomplete="off"
+                            autocorrect="off"
+                            autocapitalize="off"
+                            spellcheck="false"
+                            placeholder="ここをクリックして入力スタート..."
+                            class="w-full font-jp text-lg sm:text-xl px-4 py-3.5 rounded-2xl bg-white border-2 border-[var(--card-border)] focus:border-[var(--primary)] focus:outline-none focus:ring-4 focus:ring-[var(--primary-soft)] transition"
+                        />
+                        <!-- Live IME Composing Badge -->
+                        <span id="imeComposingBadge" class="hidden absolute right-3 top-1/2 -translate-y-1/2 px-2.5 py-1 rounded-lg bg-amber-100 text-amber-800 text-xs font-extrabold border border-amber-300">
+                            変換中 (IME Composing)...
+                        </span>
+                    </div>
+
+                    <button onclick="skipToNextPrompt()" class="kawaii-btn-soft px-4 py-3.5 text-sm font-bold cursor-pointer whitespace-nowrap" title="次の問題へスキップ">
+                        🔀 次の問題 (Skip)
+                    </button>
+                </div>
+
+                <!-- Helper Footer Info -->
+                <div class="mt-3 flex flex-wrap items-center justify-between text-xs font-semibold text-[var(--text-muted)] gap-2">
+                    <span id="inputModeHint">💡 ローマ字モード: 半角英字で入力すると自動でひらがな・カタカナに変換されます (例: shi/si, tsu/tu, nn)</span>
+                    <span id="promptsCompletedLabel">クリア問題数: 0問</span>
+                </div>
+            </div>
+        </section>
+
+        <!-- =====================================================
+             VIEW 2: PROGRESS DASHBOARD, BADGES & HISTORY
+             ===================================================== -->
+        <section id="view-dashboard" class="hidden space-y-6">
+            
+            <!-- Personal Best Summary Cards -->
+            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
+                <div class="kawaii-card p-5 flex items-center gap-4">
+                    <div class="w-12 h-12 rounded-2xl bg-[var(--primary-soft)] text-2xl flex items-center justify-center">🏆</div>
+                    <div>
+                        <div class="text-xs font-extrabold text-[var(--text-muted)]">最高スピード (Best CPM)</div>
+                        <div id="dashBestCpm" class="font-display text-3xl font-bold text-[var(--primary)]">0 CPM</div>
+                    </div>
+                </div>
+
+                <div class="kawaii-card p-5 flex items-center gap-4">
+                    <div class="w-12 h-12 rounded-2xl bg-purple-100 text-2xl flex items-center justify-center">💎</div>
+                    <div>
+                        <div class="text-xs font-extrabold text-[var(--text-muted)]">最高正確率 (Best Acc)</div>
+                        <div id="dashBestAcc" class="font-display text-3xl font-bold text-purple-600">0%</div>
+                    </div>
+                </div>
+
+                <div class="kawaii-card p-5 flex items-center gap-4">
+                    <div class="w-12 h-12 rounded-2xl bg-amber-100 text-2xl flex items-center justify-center">⭐</div>
+                    <div>
+                        <div class="text-xs font-extrabold text-[var(--text-muted)]">累計スター (Total Stars)</div>
+                        <div id="dashTotalStars" class="font-display text-3xl font-bold text-amber-500">0 ⭐</div>
+                    </div>
+                </div>
+
+                <div class="kawaii-card p-5 flex items-center gap-4">
+                    <div class="w-12 h-12 rounded-2xl bg-sky-100 text-2xl flex items-center justify-center">📚</div>
+                    <div>
+                        <div class="text-xs font-extrabold text-[var(--text-muted)]">練習回数 (Sessions)</div>
+                        <div id="dashTotalSessions" class="font-display text-3xl font-bold text-sky-600">0回</div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Recent Speed Chart -->
+            <div class="kawaii-card p-6">
+                <div class="flex flex-wrap items-center justify-between gap-2 mb-4">
+                    <div>
+                        <h2 class="text-xl font-bold text-[var(--text-main)]">📈 タイピング速度の推移 (CPM / 文字毎分)</h2>
+                        <p class="text-xs font-semibold text-[var(--text-muted)]">直近10回の練習セッション記録</p>
+                    </div>
+                    <span id="avgCpmBadge" class="px-3 py-1 rounded-full text-xs font-bold bg-[var(--primary-soft)] text-[var(--primary-hover)]">
+                        平均: 0 CPM
+                    </span>
+                </div>
+                <div id="progressChartContainer" class="h-44 bg-[var(--cream)] border border-[var(--card-border)] rounded-2xl p-4 flex items-end justify-around gap-2">
+                    <!-- Bars injected via JS -->
+                </div>
+            </div>
+
+            <!-- Achievement Badges -->
+            <div class="kawaii-card p-6">
+                <div class="flex items-center justify-between mb-4">
+                    <div>
+                        <h2 class="text-xl font-bold text-[var(--text-main)]">🏅 実績バッジコレクション</h2>
+                        <p class="text-xs font-semibold text-[var(--text-muted)]">日本語タイピングを上達させてかわいいバッジを集めよう！</p>
+                    </div>
+                    <span id="badgeProgressLabel" class="text-xs font-extrabold px-3 py-1 rounded-full bg-emerald-100 text-emerald-700">
+                        0 / 8 獲得
+                    </span>
+                </div>
+                <div id="badgesGrid" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-3.5">
+                    <!-- Badges injected via JS -->
+                </div>
+            </div>
+
+            <!-- Practice History Table -->
+            <div class="kawaii-card p-6">
+                <div class="flex flex-wrap items-center justify-between gap-3 mb-4">
+                    <div>
+                        <h2 class="text-xl font-bold text-[var(--text-main)]">🗓️ 練習履歴 (Practice History)</h2>
+                        <p class="text-xs font-semibold text-[var(--text-muted)]">ブラウザに自動保存されます</p>
+                    </div>
+                    <button onclick="clearHistoryPrompt()" class="px-3 py-1.5 rounded-xl text-xs font-bold bg-rose-50 text-rose-600 border border-rose-200 hover:bg-rose-100 transition cursor-pointer">
+                        🗑️ 履歴をリセット
+                    </button>
+                </div>
+
+                <div class="overflow-x-auto">
+                    <table class="w-full text-left border-collapse">
+                        <thead>
+                            <tr class="border-b-2 border-[var(--card-border)] text-xs font-extrabold text-[var(--text-muted)]">
+                                <th class="py-3 px-3">日時</th>
+                                <th class="py-3 px-3">入力方式</th>
+                                <th class="py-3 px-3">レベル</th>
+                                <th class="py-3 px-3">時間</th>
+                                <th class="py-3 px-3">速度 (CPM)</th>
+                                <th class="py-3 px-3">正確率</th>
+                                <th class="py-3 px-3">獲得スター</th>
+                            </tr>
+                        </thead>
+                        <tbody id="historyTableBody" class="text-sm font-semibold divide-y divide-[var(--card-border)]">
+                            <!-- Rows populated via JS -->
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </section>
+
+        <!-- =====================================================
+             VIEW 3: HOW TO PLAY / JAPANESE TYPING GUIDE
+             ===================================================== -->
+        <section id="view-guide" class="hidden space-y-6">
+            <div class="kawaii-card p-6 sm:p-8">
+                <div class="max-w-3xl mx-auto space-y-6">
+                    <div class="text-center">
+                        <span class="px-3 py-1 rounded-full text-xs font-extrabold bg-[var(--primary-soft)] text-[var(--primary-hover)]">
+                            ✨ PINK STAR TYPE ガイド
+                        </span>
+                        <h2 class="text-2xl sm:text-3xl font-bold text-[var(--text-main)] mt-2">
+                            日本語タイピングの楽しみ方
+                        </h2>
+                        <p class="text-sm text-[var(--text-muted)] mt-1">
+                            2つの入力モードを使い分けて、ひらがな・カタカナ・漢字・日常会話をマスターしよう！
+                        </p>
+                    </div>
+
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                        <div class="p-5 rounded-2xl bg-[var(--cream)] border border-[var(--card-border)]">
+                            <div class="text-lg font-extrabold text-[var(--primary)] mb-1.5">🔤 1. ローマ字入力モード (Romaji)</div>
+                            <p class="text-sm text-[var(--text-muted)] leading-relaxed">
+                                日本語IMEをオフ（半角英数）にしたままローマ字を打つと、アプリが自動的にひらがな・カタカナに変換して判定します。<code>shi / si</code>、<code>chi / ti</code>、<code>tsu / tu</code>、促音（<code>っ</code>）や撥音（<code>nn</code>）にも柔軟に対応しています！
+                            </p>
+                        </div>
+
+                        <div class="p-5 rounded-2xl bg-[var(--cream)] border border-[var(--card-border)]">
+                            <div class="text-lg font-extrabold text-sky-600 mb-1.5">🇯🇵 2. 日本語IME直接入力モード</div>
+                            <p class="text-sm text-[var(--text-muted)] leading-relaxed">
+                                パソコンやスマホの日本語キーボード（IME）をオンにして、漢字変換やフリック入力で直接お題と同じ日本語を入力します。<strong>変換確定前の未確定文字（黄色表示）はエラー判定されない</strong>ため、落ち着いて変換できます！
+                            </p>
+                        </div>
+
+                        <div class="p-5 rounded-2xl bg-[var(--cream)] border border-[var(--card-border)]">
+                            <div class="text-lg font-extrabold text-purple-600 mb-1.5">🎀 3. 3つの学習レベル</div>
+                            <p class="text-sm text-[var(--text-muted)] leading-relaxed">
+                                <strong>初級 (Beginner):</strong> 基本のひらがな・カタカナ・短い単語<br>
+                                <strong>中級 (Intermediate):</strong> 日常単語・漢字の読み・丁寧な会話表現<br>
+                                <strong>上級 (JLPT N2/N1):</strong> ビジネス敬語・四字熟語・長文パッセージ
+                            </p>
+                        </div>
+
+                        <div class="p-5 rounded-2xl bg-[var(--cream)] border border-[var(--card-border)]">
+                            <div class="text-lg font-extrabold text-amber-600 mb-1.5">⚡ 4. CPMとスター評価</div>
+                            <p class="text-sm text-[var(--text-muted)] leading-relaxed">
+                                日本語タイピングでは1分間あたりの正解文字数（<strong>CPM: Characters Per Minute</strong>）で速度を計測します。正確率とスピードに応じて最大<strong>3つ星 ⭐</strong>を獲得できます！
+                            </p>
+                        </div>
+                    </div>
+
+                    <div class="text-center pt-2">
+                        <button onclick="switchView('practice')" class="kawaii-btn px-6 py-3 text-sm sm:text-base font-bold cursor-pointer">
+                            さっそく練習をはじめる ✨
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <!-- =========================================================
+         SESSION SUMMARY MODAL
+         ========================================================= -->
+    <div id="summaryModal" class="hidden fixed inset-0 z-50 bg-slate-900/45 backdrop-blur-sm flex items-center justify-center p-4">
+        <div class="kawaii-card max-w-md w-full p-6 sm:p-7 text-center relative animate-[happyBounce_0.45s_ease]">
+            
+            <div id="modalStarsDisplay" class="flex items-center justify-center gap-2 text-4xl mb-2">
+                ⭐⭐⭐
+            </div>
+
+            <h2 id="modalTitle" class="text-2xl sm:text-3xl font-bold text-[var(--primary)]">
+                おつかれさまでした！
+            </h2>
+            <p id="modalEncouragement" class="text-sm font-bold text-[var(--text-muted)] mt-1 mb-5">
+                ホシミがあなたの頑張りをほめています！
+            </p>
+
+            <div id="modalSpecialBanner" class="hidden mb-4 px-3 py-2 rounded-xl bg-amber-100 border border-amber-300 text-amber-800 text-xs font-extrabold">
+                🎉 NEW PERSONAL RECORD!
+            </div>
+
+            <div class="grid grid-cols-2 gap-3 mb-6 text-left">
+                <div class="p-3 rounded-2xl bg-[var(--cream)] border border-[var(--card-border)]">
+                    <div class="text-[11px] font-extrabold text-[var(--text-muted)]">タイピング速度</div>
+                    <div id="sumCpm" class="font-display text-2xl font-bold text-sky-600">0 CPM</div>
+                </div>
+                <div class="p-3 rounded-2xl bg-[var(--cream)] border border-[var(--card-border)]">
+                    <div class="text-[11px] font-extrabold text-[var(--text-muted)]">正確率 (Accuracy)</div>
+                    <div id="sumAccuracy" class="font-display text-2xl font-bold text-purple-600">0%</div>
+                </div>
+                <div class="p-3 rounded-2xl bg-[var(--cream)] border border-[var(--card-border)]">
+                    <div class="text-[11px] font-extrabold text-[var(--text-muted)]">正解 / ミス文字数</div>
+                    <div class="font-display text-lg font-bold">
+                        <span id="sumCorrect" class="text-emerald-600">0</span>
+                        <span class="text-slate-400">/</span>
+                        <span id="sumIncorrect" class="text-rose-500">0</span>
+                    </div>
+                </div>
+                <div class="p-3 rounded-2xl bg-[var(--cream)] border border-[var(--card-border)]">
+                    <div class="text-[11px] font-extrabold text-[var(--text-muted)]">クリア問題数</div>
+                    <div id="sumPrompts" class="font-display text-lg font-bold text-amber-600">0 問</div>
+                </div>
+            </div>
+
+            <div class="flex flex-col sm:flex-row gap-2.5">
+                <button onclick="closeSummaryModal(true)" class="kawaii-btn flex-1 py-3 px-4 text-sm font-bold cursor-pointer">
+                    🔄 もう一回練習する
+                </button>
+                <button onclick="closeSummaryModal(false); switchView('dashboard');" class="kawaii-btn-soft flex-1 py-3 px-4 text-sm font-bold cursor-pointer">
+                    📊 記録ダッシュボード
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Custom Clear History Confirmation Modal -->
+    <div id="confirmClearModal" class="hidden fixed inset-0 z-50 bg-slate-900/45 backdrop-blur-sm flex items-center justify-center p-4">
+        <div class="kawaii-card max-w-sm w-full p-6 text-center">
+            <div class="text-3xl mb-2">🗑️</div>
+            <h3 class="text-xl font-bold text-[var(--text-main)] mb-1">記録をすべて消去しますか？</h3>
+            <p class="text-xs sm:text-sm text-[var(--text-muted)] mb-5">
+                練習履歴、自己ベスト、獲得したスターとバッジがリセットされます。
+            </p>
+            <div class="flex gap-2.5">
+                <button onclick="document.getElementById('confirmClearModal').classList.add('hidden')" class="kawaii-btn-soft flex-1 py-2.5 text-sm font-bold cursor-pointer">
+                    キャンセル
+                </button>
+                <button onclick="executeClearHistory()" class="flex-1 py-2.5 rounded-2xl bg-rose-500 hover:bg-rose-600 text-white font-display text-sm font-bold cursor-pointer">
+                    リセットする
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <!-- =========================================================
+         APPLICATION JAVASCRIPT
+         ========================================================= -->
+    <script>
+        /* =========================================================
+           1. RICH JAPANESE CURRICULUM DATABASE
+           Each item includes:
+           - text: Display Japanese (Kanji/Kana)
+           - kana: Pure Hiragana/Katakana reading (used for Romaji engine & furigana)
+           - romaji: Guide Romaji string
+           - meaning: English translation/hint
+           - category: 'kana' | 'vocab' | 'conversation'
+           ========================================================= */
+        const JAPANESE_BANK = {
+            beginner: [
+                { text: "さくら", kana: "さくら", romaji: "sakura", meaning: "Cherry blossom", category: "kana" },
+                { text: "おほしさま", kana: "おほしさま", romaji: "ohoshisama", meaning: "Twinkling star", category: "kana" },
+                { text: "ねこ", kana: "ねこ", romaji: "neko", meaning: "Cat", category: "kana" },
+                { text: "いちごミルク", kana: "いちごみるく", romaji: "ichigomiruku", meaning: "Strawberry milk", category: "kana" },
+                { text: "アイスクリーム", kana: "あいすくりーむ", romaji: "aisukuri-mu", meaning: "Ice cream", category: "kana" },
+                { text: "パンケーキ", kana: "ぱんけーき", romaji: "panke-ki", meaning: "Pancake", category: "kana" },
+                { text: "こんにちは", kana: "こんにちは", romaji: "konnichiha", meaning: "Hello / Good afternoon", category: "vocab" },
+                { text: "ありがとう", kana: "ありがとう", romaji: "arigatou", meaning: "Thank you", category: "vocab" },
+                { text: "おはようございます", kana: "おはようございます", romaji: "ohayougozaimasu", meaning: "Good morning", category: "conversation" },
+                { text: "きょうはいい天気ですね", kana: "きょうはいいてんきですね", romaji: "kyouhaiitenkidesune", meaning: "The weather is nice today", category: "conversation" },
+                { text: "よろしくおねがいします", kana: "よろしくおねがいします", romaji: "yoroshikuonegaishimasu", meaning: "Nice to meet you", category: "conversation" },
+                { text: "わたしはりんごが好きです", kana: "わたしはりんごがすきです", romaji: "watashiharingogasukidesu", meaning: "I like apples", category: "conversation" }
+            ],
+            intermediate: [
+                { text: "図書館で本を借ります", kana: "としょかんでほんをかります", romaji: "toshokandehonwokarimasu", meaning: "Borrow a book at the library", category: "vocab" },
+                { text: "一生懸命に練習する", kana: "いっしょうけんめいにれんしゅうする", romaji: "isshoukenmeinirenshuusuru", meaning: "Practice with all one's effort", category: "vocab" },
+                { text: "スマートフォン", kana: "すまーとふぉん", romaji: "suma-tofon", meaning: "Smartphone", category: "kana" },
+                { text: "チョコレートパフェ", kana: "ちょこれーとぱふぇ", romaji: "chokore-topafe", meaning: "Chocolate parfait", category: "kana" },
+                { text: "日本語のタイピングが上手になりました", kana: "にほんごのたいぴんぐがじょうずになりました", romaji: "nihongonotaipingugajouzuninarimashita", meaning: "My Japanese typing has improved", category: "conversation" },
+                { text: "週末は友達とカフェに行く予定です", kana: "しゅうまつはともだちとかふぇにいくよていです", romaji: "shuumatsuhatomodachitokafeniikuyoteidesu", meaning: "I plan to go to a cafe with friends this weekend", category: "conversation" },
+                { text: "毎日少しずつ続けることが大切です", kana: "まいにちすこしずつづけることがたいせつです", romaji: "mainichisukoshizutsutsuzukerukotogataisetsudesu", meaning: "Continuing a little every day is important", category: "conversation" },
+                { text: "新しい季節の訪れを感じます", kana: "あたらしいきせつのおとずれをかんじます", romaji: "atarashiikisetsunootozurewokanjimasu", meaning: "I feel the arrival of a new season", category: "vocab" },
+                { text: "駅前のパン屋さんはとても人気です", kana: "えきまえのぱんやさんはとてもにんきです", romaji: "ekimaenopanyasanhatotemoninkidesu", meaning: "The bakery in front of the station is very popular", category: "conversation" }
+            ],
+            advanced: [
+                { text: "一期一会の出会いを大切にする", kana: "いちごいちえのであいをたいせつにする", romaji: "ichigoichienodeaiwotaisetsunisuru", meaning: "Treasure every once-in-a-lifetime encounter", category: "vocab" },
+                { text: "臨機応変に対応する能力が求められる", kana: "りんきおうへんにたいおうするのうりょくがもとめられる", romaji: "rinkiouhennitaiousurunouryokugamotomeraeru", meaning: "The ability to respond flexibly is required", category: "vocab" },
+                { text: "持続可能な社会を実現するための取り組み", kana: "じぞくかのうなしゃかいをじつげんするためのとりくみ", romaji: "jizokukanounashakaiwojitsugensurutamenotorikumi", meaning: "Initiatives to realize a sustainable society", category: "vocab" },
+                { text: "人工知能と教育技術の融合が新たな学びを創出する", kana: "じんこうちのうときょういくぎじゅつのゆうごうがあらたなまなびをそうしゅつする", romaji: "jinkouchinoutokyouikugijutsunoyuugougaaratanamanabiwosoushutsuru", meaning: "The fusion of AI and EdTech creates new ways of learning", category: "conversation" },
+                { text: "お忙しいところ恐れ入りますが、ご確認のほどよろしくお願いいたします", kana: "おいそがしいところおそれいりますが、ごかくにんのほどよろしくお願いいたします", romaji: "oisogashiitokoroosoreirimasuga,gokakuninnohodoyoroshikuonegaishimasu", meaning: "Apologies for troubling you while busy, please kindly confirm", category: "conversation" },
+                { text: "夜空に輝く無数の星々が幻想的な風景を描き出していた", kana: "よぞらにかがやくむすうのほしぼしがげんそうてきなふうけいをえがきだしていた", romaji: "yozoranikagayakumusuunohoshiboshigagensoutekinafuukeiwoegakidashiteita", meaning: "Countless stars shining in the night sky painted a fantastical scenery", category: "conversation" },
+                { text: "グローバル化が進む現代において異文化理解は不可欠である", kana: "ぐろーばるかがすすむげんだいにおいていぶんかりかいはふかけつである", romaji: "guro-barukagasusumugendainioteibunkarikaihafukaketsudearu", meaning: "Cross-cultural understanding is indispensable in today's globalized era", category: "kana" }
+            ]
+        };
+
+        const DAILY_JAPANESE_QUESTS = [
+            { text: "流れ星に願いを込めて今日も楽しく練習しよう", kana: "ながれぼしにねがいをこめてきょうもたのしくれんしゅうしよう", romaji: "nagareboshininegaiwokometekyoumotanoshikurenshuushiyou", meaning: "Make a wish on a shooting star and enjoy practicing today", category: "conversation" },
+            { text: "桜の花びらが春の風に舞い上がっています", kana: "さくらのはなびらがはるのかぜにまいあがっています", romaji: "sakuranohanabiragaharunokazenimaiagatteimasu", meaning: "Cherry blossom petals are dancing in the spring breeze", category: "conversation" },
+            { text: "正確なタイピングは美しいリズムから生まれます", kana: "せいかくなたいぴんぐはうつくしいりずむからうまれます", romaji: "seikakunataipinguhautsukushiirizumukaraumaremasu", meaning: "Accurate typing is born from a beautiful rhythm", category: "conversation" },
+            { text: "パステルカラーの星空が夢の世界へ誘います", kana: "ぱすてるからーのほしぞらがゆめのせかいへいざないます", romaji: "pasuterukara-nohoshizoragayumenosekaiheizanaiimasu", meaning: "The pastel starry sky invites you into a dream world", category: "conversation" },
+            { text: "一歩ずつの努力がやがて大きな自信につながります", kana: "いっぽずつのどりょくがやがておおきなじしんにつながります", romaji: "ippozutsunodoryokugayagateookinajishinnitsunagarimasu", meaning: "Step-by-step effort eventually leads to great confidence", category: "conversation" }
+        ];
+
+        const ACHIEVEMENTS = [
+            { id: 'first_step', icon: '🌱', title: 'はじめての一歩', desc: '最初の日本語タイピング練習を完了する' },
+            { id: 'cpm_80', icon: '🐇', title: 'ぴょんぴょんウサギ', desc: '速度 80 CPM 以上を達成する' },
+            { id: 'cpm_150', icon: '🚀', title: '流れ星スピード', desc: '速度 150 CPM 以上を達成する' },
+            { id: 'cpm_220', icon: '⚡', title: '光速スターマスター', desc: '速度 220 CPM 以上を達成する' },
+            { id: 'acc_95', icon: '🎯', title: '精密シューター', desc: '正確率 95% 以上でセッション完了' },
+            { id: 'ime_master', icon: '🇯🇵', title: '漢字変換の達人', desc: '日本語IME直接入力モードで1回クリア' },
+            { id: 'adv_clear', icon: '👑', title: 'N1・上級チャレンジャー', desc: '上級レベルで練習を完了する' },
+            { id: 'sessions_5', icon: '💖', title: 'コツコツ努力家', desc: '合計5回の練習セッションを完了する' }
+        ];
+
+        /* =========================================================
+           2. SMART ROMAJI-TO-HIRAGANA CONVERSION ENGINE
+           Supports standard Hepburn & Kunrei variants (shi/si, chi/ti,
+           tsu/tu, fu/hu, ji/zi, sha/sya, cha/tya, small tsu, n/nn)
+           ========================================================= */
+        const ROMAJI_MAP = {
+            // Basic Vowels
+            'a': 'あ', 'i': 'い', 'u': 'う', 'e': 'え', 'o': 'お',
+            // K-row
+            'ka': 'か', 'ki': 'き', 'ku': 'く', 'ke': 'け', 'ko': 'こ',
+            'kya': 'きゃ', 'kyu': 'きゅ', 'kyo': 'きょ',
+            // G-row
+            'ga': 'が', 'gi': 'ぎ', 'gu': 'ぐ', 'ge': 'げ', 'go': 'ご',
+            'gya': 'ぎゃ', 'gyu': 'ぎゅ', 'gyo': 'ぎょ',
+            // S-row
+            'sa': 'さ', 'si': 'し', 'shi': 'し', 'su': 'す', 'se': 'せ', 'so': 'そ',
+            'sha': 'しゃ', 'sya': 'しゃ', 'shu': 'しゅ', 'syu': 'しゅ', 'sho': 'しょ', 'syo': 'しょ',
+            // Z-row
+            'za': 'ざ', 'zi': 'じ', 'ji': 'じ', 'zu': 'ず', 'ze': 'ぜ', 'zo': 'ぞ',
+            'ja': 'じゃ', 'jya': 'じゃ', 'zya': 'じゃ', 'ju': 'じゅ', 'jyu': 'じゅ', 'zyu': 'じゅ', 'jo': 'じょ', 'jyo': 'じょ', 'zyo': 'じょ',
+            // T-row
+            'ta': 'た', 'ti': 'ち', 'chi': 'ち', 'tu': 'つ', 'tsu': 'つ', 'te': 'て', 'to': 'と',
+            'cha': 'ちゃ', 'tya': 'ちゃ', 'chu': 'ちゅ', 'tyu': 'ちゅ', 'cho': 'ちょ', 'tyo': 'ちょ',
+            // D-row
+            'da': 'だ', 'di': 'ぢ', 'du': 'づ', 'de': 'で', 'do': 'ど',
+            'dya': 'ぢゃ', 'dyu': 'ぢゅ', 'dyo': 'ぢょ',
+            // N-row
+            'na': 'な', 'ni': 'に', 'nu': 'ぬ', 'ne': 'ね', 'no': 'の',
+            'nya': 'にゃ', 'nyu': 'にゅ', 'nyo': 'にょ',
+            // H-row
+            'ha': 'は', 'hi': 'ひ', 'hu': 'ふ', 'fu': 'ふ', 'he': 'へ', 'ho': 'ほ',
+            'hya': 'ひゃ', 'hyu': 'ひゅ', 'hyo': 'ひょ',
+            // F-combos (Katakana loanwords like フォン / フェ)
+            'fa': 'ふぁ', 'fi': 'ふぃ', 'fe': 'ふぇ', 'fo': 'ふぉ',
+            // B-row
+            'ba': 'ば', 'bi': 'び', 'bu': 'ぶ', 'be': 'べ', 'bo': 'ぼ',
+            'bya': 'びゃ', 'byu': 'びゅ', 'byo': 'びょ',
+            // P-row
+            'pa': 'ぱ', 'pi': 'ぴ', 'pu': 'ぷ', 'pe': 'ぺ', 'po': 'ぽ',
+            'pya': 'ぴゃ', 'pyu': 'ぴゅ', 'pyo': 'ぴょ',
+            // M-row
+            'ma': 'ま', 'mi': 'み', 'mu': 'む', 'me': 'め', 'mo': 'も',
+            'mya': 'みゃ', 'myu': 'みゅ', 'myo': 'みょ',
+            // Y-row
+            'ya': 'や', 'yu': 'ゆ', 'yo': 'よ',
+            // R-row
+            'ra': 'ら', 'ri': 'り', 'ru': 'る', 're': 'れ', 'ro': 'ろ',
+            'rya': 'りゃ', 'ryu': 'りゅ', 'ryo': 'りょ',
+            // W-row & N
+            'wa': 'わ', 'wo': 'を', 'nn': 'ん', "n'": 'ん',
+            // Small kana
+            'xa': 'ぁ', 'xi': 'ぃ', 'xu': 'ぅ', 'xe': 'ぇ', 'xo': 'ぉ',
+            'la': 'ぁ', 'li': 'ぃ', 'lu': 'ぅ', 'le': 'ぇ', 'lo': 'ぉ',
+            'xtsu': 'っ', 'ltsu': 'っ', 'xtu': 'っ', 'ltu': 'っ',
+            'xya': 'ゃ', 'xyu': 'ゅ', 'xyo': 'ょ',
+            'lya': 'ゃ', 'lyu': 'ゅ', 'lyo': 'ょ',
+            // Punctuation
+            '-': 'ー', ',': '、', '.': '。', '!': '！', '?': '？'
+        };
+
+        /**
+         * Converts a raw ASCII Romaji buffer into confirmed Hiragana + pending romaji tail.
+         */
+        function convertRomajiStream(rawAscii) {
+            let s = rawAscii.toLowerCase();
+            let confirmedKana = '';
+            let i = 0;
+
+            while (i < s.length) {
+                const rem = s.slice(i);
+
+                // 1. Check double consonant -> small tsu 'っ' (e.g., 'kk', 'tt', 'ss', 'pp')
+                if (rem.length >= 2 && rem[0] === rem[1] && 'bcdfghjklmpqrstvwxyz'.includes(rem[0])) {
+                    confirmedKana += 'っ';
+                    i += 1;
+                    continue;
+                }
+
+                // 2. Check 'nn' or "n'" -> 'ん'
+                if (rem.startsWith('nn') || rem.startsWith("n'")) {
+                    confirmedKana += 'ん';
+                    i += 2;
+                    continue;
+                }
+
+                // 3. Check single 'n' followed by a non-vowel/non-y consonant -> 'ん'
+                if (rem[0] === 'n' && rem.length >= 2 && !'aiueoyn\''.includes(rem[1])) {
+                    confirmedKana += 'ん';
+                    i += 1;
+                    continue;
+                }
+
+                // 4. Match longest Romaji syllable (4 down to 1 chars)
+                let matched = false;
+                for (let len = 4; len >= 1; len--) {
+                    if (rem.length >= len) {
+                        const chunk = rem.slice(0, len);
+                        if (ROMAJI_MAP[chunk]) {
+                            confirmedKana += ROMAJI_MAP[chunk];
+                            i += len;
+                            matched = true;
+                            break;
+                        }
+                    }
+                }
+
+                if (!matched) {
+                    // Could be an incomplete prefix like 'k', 'sh', 'ch', 'ts', or trailing 'n'
+                    const isPrefix = Object.keys(ROMAJI_MAP).some(k => k.startsWith(rem)) || rem === 'n';
+                    if (isPrefix && i + rem.length === s.length) {
+                        // Keep at the end as pending buffer while user finishes the syllable
+                        return { kana: confirmedKana, pending: rem };
+                    } else {
+                        // Invalid consonant sequence -> pass through as raw character so user sees error
+                        confirmedKana += rem[0];
+                        i += 1;
+                    }
+                }
+            }
+
+            return { kana: confirmedKana, pending: '' };
+        }
+
+        /* =========================================================
+           3. APPLICATION STATE & STORAGE
+           ========================================================= */
+        const STORAGE_KEY = 'pink_star_type_jp_v1';
+
+        let appData = {
+            totalStars: 0,
+            bestCpm: 0,
+            bestAccuracy: 0,
+            history: [],
+            unlockedBadges: [],
+            dailyCompletedDate: null,
+            theme: 'pastel-pink',
+            soundEnabled: true
+        };
+
+        let session = {
+            inputMode: 'romaji',     // 'romaji' | 'ime'
+            level: 'beginner',       // 'beginner' | 'intermediate' | 'advanced'
+            category: 'mixed',       // 'mixed' | 'kana' | 'vocab' | 'conversation'
+            duration: 30,            // 30 | 60 | 120 | 0 (unlimited)
+            isDailyQuest: false,
+            status: 'IDLE',          // 'IDLE' | 'RUNNING' | 'PAUSED' | 'FINISHED'
+            timeLeft: 30,
+            timerInterval: null,
+            startTimestamp: null,
+            pausedAccumulatedMs: 0,
+            pauseStartMs: null,
+            currentPrompt: null,
+            usedTexts: [],
+            isComposingIME: false,   // True while user is converting Kana->Kanji in IME
+            // Cumulative stats across completed prompts
+            completedCorrectChars: 0,
+            completedIncorrectChars: 0,
+            completedTotalTyped: 0,
+            promptsCompleted: 0,
+            // Active prompt stats
+            currentCorrectChars: 0,
+            currentIncorrectChars: 0,
+            currentTypedLength: 0,
+            pendingRomaji: ''
+        };
+
+        /* =========================================================
+           4. WEB AUDIO KAWAII SOUND EFFECTS
+           ========================================================= */
+        let audioCtx = null;
+
+        function initAudio() {
+            if (!audioCtx) {
+                const AudioContextClass = window.AudioContext || window.webkitAudioContext;
+                if (AudioContextClass) audioCtx = new AudioContextClass();
+            }
+            if (audioCtx && audioCtx.state === 'suspended') {
+                audioCtx.resume();
+            }
+        }
+
+        function playTone(type) {
+            if (!appData.soundEnabled) return;
+            try {
+                initAudio();
+                if (!audioCtx) return;
+                const now = audioCtx.currentTime;
+                const osc = audioCtx.createOscillator();
+                const gain = audioCtx.createGain();
+                osc.connect(gain);
+                gain.connect(audioCtx.destination);
+
+                if (type === 'key-ok') {
+                    osc.type = 'sine';
+                    osc.frequency.setValueAtTime(640 + Math.random() * 80, now);
+                    osc.frequency.exponentialRampToValueAtTime(920, now + 0.045);
+                    gain.gain.setValueAtTime(0.055, now);
+                    gain.gain.exponentialRampToValueAtTime(0.001, now + 0.05);
+                    osc.start(now);
+                    osc.stop(now + 0.055);
+                } else if (type === 'key-err') {
+                    osc.type = 'triangle';
+                    osc.frequency.setValueAtTime(200, now);
+                    osc.frequency.exponentialRampToValueAtTime(135, now + 0.09);
+                    gain.gain.setValueAtTime(0.08, now);
+                    gain.gain.exponentialRampToValueAtTime(0.001, now + 0.1);
+                    osc.start(now);
+                    osc.stop(now + 0.11);
+                } else if (type === 'prompt-done') {
+                    const notes = [523.25, 659.25, 783.99, 1046.50];
+                    notes.forEach((freq, idx) => {
+                        const o = audioCtx.createOscillator();
+                        const g = audioCtx.createGain();
+                        o.type = 'sine';
+                        o.connect(g);
+                        g.connect(audioCtx.destination);
+                        o.frequency.setValueAtTime(freq, now + idx * 0.055);
+                        g.gain.setValueAtTime(0.075, now + idx * 0.055);
+                        g.gain.exponentialRampToValueAtTime(0.001, now + idx * 0.055 + 0.25);
+                        o.start(now + idx * 0.055);
+                        o.stop(now + idx * 0.055 + 0.26);
+                    });
+                } else if (type === 'finish') {
+                    const notes = [587.33, 739.99, 880.00, 1174.66];
+                    notes.forEach((freq, idx) => {
+                        const o = audioCtx.createOscillator();
+                        const g = audioCtx.createGain();
+                        o.type = 'triangle';
+                        o.connect(g);
+                        g.connect(audioCtx.destination);
+                        o.frequency.setValueAtTime(freq, now + idx * 0.09);
+                        g.gain.setValueAtTime(0.10, now + idx * 0.09);
+                        g.gain.exponentialRampToValueAtTime(0.001, now + idx * 0.09 + 0.4);
+                        o.start(now + idx * 0.09);
+                        o.stop(now + idx * 0.09 + 0.42);
+                    });
+                }
+            } catch (e) {}
+        }
+
+        /* =========================================================
+           5. PERSISTENCE, NAVIGATION & THEME SETTINGS
+           ========================================================= */
+        function loadSavedData() {
+            try {
+                const raw = localStorage.getItem(STORAGE_KEY);
+                if (raw) {
+                    appData = { ...appData, ...JSON.parse(raw) };
+                }
+            } catch (err) {
+                console.warn('Storage load error:', err);
+            }
+            applyTheme(appData.theme, false);
+            updateSoundUI();
+            updateHeaderStats();
+            updateDailyQuestUI();
+        }
+
+        function saveData() {
+            try {
+                localStorage.setItem(STORAGE_KEY, JSON.stringify(appData));
+            } catch (err) {
+                console.warn('Storage save error:', err);
+            }
+        }
+
+        function switchView(viewName) {
+            ['practice', 'dashboard', 'guide'].forEach(v => {
+                document.getElementById(`view-${v}`).classList.add('hidden');
+                document.getElementById(`nav-${v}`).classList.remove('active');
+            });
+
+            document.getElementById(`view-${viewName}`).classList.remove('hidden');
+            document.getElementById(`nav-${viewName}`).classList.add('active');
+
+            if (viewName === 'dashboard') {
+                renderDashboard();
+            }
+        }
+
+        function changeTheme(themeName) {
+            applyTheme(themeName, true);
+        }
+
+        function applyTheme(themeName, shouldSave = true) {
+            document.documentElement.setAttribute('data-theme', themeName);
+            const sel = document.getElementById('themeSelect');
+            if (sel) sel.value = themeName;
+            appData.theme = themeName;
+            if (shouldSave) saveData();
+        }
+
+        function toggleSound() {
+            appData.soundEnabled = !appData.soundEnabled;
+            updateSoundUI();
+            saveData();
+            if (appData.soundEnabled) playTone('key-ok');
+        }
+
+        function updateSoundUI() {
+            document.getElementById('soundIcon').textContent = appData.soundEnabled ? '🔊' : '🔇';
+        }
+
+        function updateHeaderStats() {
+            document.getElementById('headerStarCount').textContent = appData.totalStars;
+        }
+
+        /* =========================================================
+           6. DAILY QUEST MANAGEMENT
+           ========================================================= */
+        function getTodayKey() {
+            const d = new Date();
+            return `${d.getFullYear()}-${String(d.getMonth() + 1).padStart(2, '0')}-${String(d.getDate()).padStart(2, '0')}`;
+        }
+
+        function getTodayQuestPrompt() {
+            const idx = new Date().getDate() % DAILY_JAPANESE_QUESTS.length;
+            return DAILY_JAPANESE_QUESTS[idx];
+        }
+
+        function updateDailyQuestUI() {
+            const today = getTodayKey();
+            const isDone = appData.dailyCompletedDate === today;
+            const badge = document.getElementById('dailyStatusBadge');
+            const btn = document.getElementById('startDailyBtn');
+
+            document.getElementById('dailyDateLabel').textContent = `Quest Date: ${today}`;
+            if (isDone) {
+                badge.textContent = '✅ 本日クリア済み！';
+                badge.className = 'text-xs font-bold px-2.5 py-0.5 rounded-full bg-emerald-100 text-emerald-700';
+                btn.textContent = '✨ もう一度挑戦';
+            } else {
+                badge.textContent = '+5 ボーナス ⭐';
+                badge.className = 'text-xs font-bold px-2.5 py-0.5 rounded-full bg-amber-100 text-amber-800';
+                btn.textContent = '✨ デイリーに挑戦';
+            }
+        }
+
+        function activateDailyChallenge() {
+            session.isDailyQuest = true;
+            resetSession(true);
+            document.getElementById('modeIndicatorBadge').textContent = '🌟 デイリー日本語クエスト';
+            setMascotMood('happy', '「デイリークエスト開始！正確率92%以上でクリアすると +5ボーナススターがもらえるよ！」');
+            focusTypingInput();
+        }
+
+        /* =========================================================
+           7. PRACTICE SETTINGS SELECTORS
+           ========================================================= */
+        function setInputMode(mode) {
+            if (session.status === 'RUNNING') return;
+            session.inputMode = mode;
+
+            document.querySelectorAll('.inputmode-btn').forEach(btn => {
+                const active = btn.dataset.inputmode === mode;
+                btn.classList.toggle('active', active);
+                if (!active) btn.classList.add('text-[var(--text-main)]');
+            });
+
+            const inputEl = document.getElementById('typingInput');
+            const hintEl = document.getElementById('inputModeHint');
+
+            if (mode === 'romaji') {
+                inputEl.placeholder = 'ローマ字で入力してスタート (例: sakura, konnichiha)...';
+                hintEl.textContent = '💡 ローマ字モード: 半角英字で入力すると自動でひらがなに置換されます (例: shi/si, tsu/tu, nn)';
+            } else {
+                inputEl.placeholder = '日本語IMEをオンにして直接入力・変換してください...';
+                hintEl.textContent = '💡 日本語IMEモード: 変換中(黄色)はミス判定されません。Enterで変換確定後に判定されます！';
+            }
+
+            resetSession(session.isDailyQuest);
+        }
+
+        function setLevel(level) {
+            if (session.status === 'RUNNING') return;
+            session.level = level;
+            session.isDailyQuest = false;
+            session.usedTexts = [];
+
+            document.querySelectorAll('.level-btn').forEach(btn => {
+                const active = btn.dataset.level === level;
+                btn.classList.toggle('active', active);
+                if (!active) btn.classList.add('text-[var(--text-main)]');
+            });
+
+            resetSession(false);
+        }
+
+        function setCategory(category) {
+            if (session.status === 'RUNNING') return;
+            session.category = category;
+            session.isDailyQuest = false;
+            session.usedTexts = [];
+
+            document.querySelectorAll('.category-btn').forEach(btn => {
+                const active = btn.dataset.category === category;
+                btn.classList.toggle('active', active);
+                if (!active) btn.classList.add('text-[var(--text-main)]');
+            });
+
+            resetSession(false);
+        }
+
+        function setDuration(seconds) {
+            if (session.status === 'RUNNING') return;
+            session.duration = seconds;
+            session.isDailyQuest = false;
+
+            document.querySelectorAll('.duration-btn').forEach(btn => {
+                const active = Number(btn.dataset.duration) === seconds;
+                btn.classList.toggle('active', active);
+                if (!active) btn.classList.add('text-[var(--text-main)]');
+            });
+
+            resetSession(false);
+        }
+
+        /* =========================================================
+           8. PROMPT SELECTION & RENDERING
+           ========================================================= */
+        function pickNextPrompt() {
+            if (session.isDailyQuest && session.promptsCompleted === 0) {
+                return getTodayQuestPrompt();
+            }
+
+            const levelPool = JAPANESE_BANK[session.level] || JAPANESE_BANK.beginner;
+            let filtered = session.category === 'mixed'
+                ? levelPool
+                : levelPool.filter(item => item.category === session.category);
+
+            if (filtered.length === 0) filtered = levelPool;
+
+            let available = filtered.filter(item => !session.usedTexts.includes(item.text));
+            if (available.length === 0) {
+                session.usedTexts = [];
+                available = [...filtered];
+            }
+
+            const chosen = available[Math.floor(Math.random() * available.length)];
+            session.usedTexts.push(chosen.text);
+            return chosen;
+        }
+
+        function getCategoryLabel(cat) {
+            const labels = {
+                kana: 'あア ひらがな・カタカナ',
+                vocab: '漢 単語・漢字読み',
+                conversation: '💬 文章・日常会話'
+            };
+            return labels[cat] || '✨ 日本語フレーズ';
+        }
+
+        function getLevelLabel(lvl) {
+            const labels = {
+                beginner: '初級',
+                intermediate: '中級',
+                advanced: '上級 (N2/N1)'
+            };
+            return labels[lvl] || '初級';
+        }
+
+        /**
+         * Renders the current Japanese prompt with real-time character highlights.
+         * - In 'romaji' mode: evaluates against `prompt.kana` (pure Hiragana reading).
+         * - In 'ime' mode: evaluates against `prompt.text` (Kanji + Kana) and respects IME composition!
+         */
+        function renderCurrentPrompt(typedValue = '', confirmedEndIdx = null) {
+            const prompt = session.currentPrompt;
+            if (!prompt) return;
+
+            const showGuide = document.getElementById('toggleRomajiGuide').checked;
+            document.getElementById('promptCategoryTag').textContent = getCategoryLabel(prompt.category);
+            document.getElementById('promptMeaningHint').textContent = `意味: ${prompt.meaning}`;
+
+            // Reading & Romaji Guide visibility
+            const readingBox = document.getElementById('promptReadingBox');
+            const romajiBox = document.getElementById('promptRomajiBox');
+
+            if (showGuide) {
+                readingBox.classList.remove('hidden');
+                romajiBox.classList.remove('hidden');
+                readingBox.textContent = session.inputMode === 'romaji'
+                    ? `お題: ${prompt.text}`
+                    : `よみがな: ${prompt.kana}`;
+
+                if (session.inputMode === 'romaji') {
+                    const pendingDisplay = session.pendingRomaji ? ` [入力中: ${session.pendingRomaji}]` : '';
+                    romajiBox.textContent = `ローマ字目安: ${prompt.romaji}${pendingDisplay}`;
+                } else {
+                    romajiBox.textContent = `IME入力対象: ${prompt.text}`;
+                }
+            } else {
+                readingBox.classList.add('hidden');
+                romajiBox.classList.add('hidden');
+            }
+
+            // Determine target string based on inputMode
+            const targetStr = session.inputMode === 'romaji' ? prompt.kana : prompt.text;
+            const safeConfirmedLen = confirmedEndIdx !== null ? confirmedEndIdx : typedValue.length;
+
+            let html = '';
+            for (let i = 0; i < targetStr.length; i++) {
+                const ch = escapeHtml(targetStr[i]);
+
+                if (i < safeConfirmedLen) {
+                    // Confirmed typed character
+                    if (typedValue[i] === targetStr[i]) {
+                        html += `<span class="char-span char-correct">${ch}</span>`;
+                    } else {
+                        html += `<span class="char-span char-incorrect">${ch}</span>`;
+                    }
+                } else if (i < typedValue.length) {
+                    // Unconfirmed IME composing character (highlighted gently in amber, NOT marked wrong!)
+                    html += `<span class="char-span char-composing">${ch}</span>`;
+                } else if (i === typedValue.length) {
+                    html += `<span class="char-span char-current">${ch}</span>`;
+                } else {
+                    html += `<span class="char-span">${ch}</span>`;
+                }
+            }
+
+            document.getElementById('promptMainChars').innerHTML = html;
+
+            // Update progress bar
+            const pct = Math.min(100, Math.round((safeConfirmedLen / targetStr.length) * 100));
+            document.getElementById('promptProgressBar').style.width = `${pct}%`;
+        }
+
+        function escapeHtml(str) {
+            return str.replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;');
+        }
+
+        function focusTypingInput() {
+            const input = document.getElementById('typingInput');
+            if (!input.disabled) input.focus();
+        }
+
+        /* =========================================================
+           9. SESSION CONTROLS, IME COMPOSITION & INPUT HANDLERS
+           ========================================================= */
+        function startSession() {
+            if (session.status === 'RUNNING') return;
+            if (session.status === 'PAUSED') {
+                togglePauseSession();
+                return;
+            }
+            if (session.status === 'FINISHED') {
+                resetSession(session.isDailyQuest);
+            }
+
+            session.status = 'RUNNING';
+            session.startTimestamp = performance.now();
+            session.pausedAccumulatedMs = 0;
+
+            updateControlButtons();
+            setMascotMood('normal', '「スタート！焦らず正確にタイピングしてみよう！」');
+            focusTypingInput();
+
+            clearInterval(session.timerInterval);
+            session.timerInterval = setInterval(tickTimer, 200);
+        }
+
+        function tickTimer() {
+            if (session.status !== 'RUNNING') return;
+
+            const elapsedMs = performance.now() - session.startTimestamp - session.pausedAccumulatedMs;
+            const elapsedSec = Math.floor(elapsedMs / 1000);
+
+            if (session.duration === 0) {
+                // Unlimited mode: count upwards
+                document.getElementById('statTimer').textContent = `${elapsedSec}s`;
+                updateLiveMetrics();
+            } else {
+                const remaining = Math.max(0, Math.ceil(session.duration - (elapsedMs / 1000)));
+                session.timeLeft = remaining;
+                document.getElementById('statTimer').textContent = `${remaining}s`;
+                updateLiveMetrics();
+
+                if (remaining <= 0) {
+                    finishSession();
+                }
+            }
+        }
+
+        function togglePauseSession() {
+            if (session.status === 'RUNNING') {
+                session.status = 'PAUSED';
+                session.pauseStartMs = performance.now();
+                document.getElementById('pauseOverlay').classList.remove('hidden');
+                document.getElementById('typingInput').disabled = true;
+                updateControlButtons();
+                setMascotMood('normal', '「一時停止中だよ。準備ができたら再開してね！」');
+            } else if (session.status === 'PAUSED') {
+                session.status = 'RUNNING';
+                session.pausedAccumulatedMs += (performance.now() - session.pauseStartMs);
+                session.pauseStartMs = null;
+                document.getElementById('pauseOverlay').classList.add('hidden');
+                document.getElementById('typingInput').disabled = false;
+                updateControlButtons();
+                focusTypingInput();
+                setMascotMood('normal', '「おかえりなさい！続きをがんばろう！」');
+            }
+        }
+
+        function resetSession(keepDailyFlag = false) {
+            clearInterval(session.timerInterval);
+            session.status = 'IDLE';
+            session.timeLeft = session.duration;
+            session.startTimestamp = null;
+            session.pausedAccumulatedMs = 0;
+            session.pauseStartMs = null;
+            session.isComposingIME = false;
+            session.completedCorrectChars = 0;
+            session.completedIncorrectChars = 0;
+            session.completedTotalTyped = 0;
+            session.promptsCompleted = 0;
+            session.currentCorrectChars = 0;
+            session.currentIncorrectChars = 0;
+            session.currentTypedLength = 0;
+            session.pendingRomaji = '';
+
+            if (!keepDailyFlag) {
+                session.isDailyQuest = false;
+                const timeText = session.duration === 0 ? '無制限モード' : `${session.duration}秒`;
+                document.getElementById('modeIndicatorBadge').textContent = `${getLevelLabel(session.level)} • ${timeText}`;
+            }
+
+            session.currentPrompt = pickNextPrompt();
+
+            const input = document.getElementById('typingInput');
+            input.value = '';
+            input.disabled = false;
+
+            document.getElementById('imeComposingBadge').classList.add('hidden');
+            document.getElementById('pauseOverlay').classList.add('hidden');
+            document.getElementById('statTimer').textContent = session.duration === 0 ? '∞' : `${session.duration}s`;
+            document.getElementById('statCpm').textContent = '0';
+            document.getElementById('statAccuracy').textContent = '100%';
+            document.getElementById('statCorrect').textContent = '0';
+            document.getElementById('statIncorrect').textContent = '0';
+            document.getElementById('statTotal').textContent = '0';
+            document.getElementById('promptsCompletedLabel').textContent = 'クリア問題数: 0問';
+
+            renderCurrentPrompt('');
+            updateControlButtons();
+            setMascotMood('normal', '「準備OK！入力ボックスに文字を打つと自動でタイマーが始まるよ！」');
+        }
+
+        function skipToNextPrompt() {
+            if (session.status === 'PAUSED' || session.status === 'FINISHED') return;
+            session.currentPrompt = pickNextPrompt();
+            session.currentCorrectChars = 0;
+            session.currentIncorrectChars = 0;
+            session.currentTypedLength = 0;
+            session.pendingRomaji = '';
+            session.isComposingIME = false;
+            document.getElementById('imeComposingBadge').classList.add('hidden');
+
+            const input = document.getElementById('typingInput');
+            input.value = '';
+            renderCurrentPrompt('');
+            focusTypingInput();
+        }
+
+        /**
+         * Evaluates confirmed input against the target Japanese string.
+         * Never penalizes unconfirmed IME composition characters!
+         */
+        function evaluateConfirmedInput(fullValue, confirmedLength) {
+            const targetStr = session.inputMode === 'romaji'
+                ? session.currentPrompt.kana
+                : session.currentPrompt.text;
+
+            const confirmedSlice = fullValue.slice(0, confirmedLength);
+
+            // Play subtle audio cue when new confirmed characters are added
+            if (confirmedSlice.length > session.currentTypedLength) {
+                const lastIdx = confirmedSlice.length - 1;
+                if (confirmedSlice[lastIdx] === targetStr[lastIdx]) {
+                    playTone('key-ok');
+                } else {
+                    playTone('key-err');
+                }
+            }
+
+            let correct = 0;
+            let incorrect = 0;
+            for (let i = 0; i < confirmedSlice.length; i++) {
+                if (confirmedSlice[i] === targetStr[i]) {
+                    correct++;
+                } else {
+                    incorrect++;
+                }
+            }
+
+            session.currentCorrectChars = correct;
+            session.currentIncorrectChars = incorrect;
+            session.currentTypedLength = confirmedSlice.length;
+
+            renderCurrentPrompt(fullValue, confirmedLength);
+            updateLiveMetrics();
+
+            // Check if the prompt is completely matched in length
+            if (confirmedSlice.length >= targetStr.length && !session.isComposingIME && session.pendingRomaji === '') {
+                session.completedCorrectChars += correct;
+                session.completedIncorrectChars += incorrect;
+                session.completedTotalTyped += targetStr.length;
+                session.promptsCompleted += 1;
+
+                session.currentCorrectChars = 0;
+                session.currentIncorrectChars = 0;
+                session.currentTypedLength = 0;
+                session.pendingRomaji = '';
+
+                document.getElementById('promptsCompletedLabel').textContent = `クリア問題数: ${session.promptsCompleted}問`;
+                playTone('prompt-done');
+                triggerMascotCheer();
+
+                // Load next prompt immediately
+                session.currentPrompt = pickNextPrompt();
+                const inputEl = document.getElementById('typingInput');
+                inputEl.value = '';
+                renderCurrentPrompt('');
+                updateLiveMetrics();
+            }
+        }
+
+        function handleInputEvent(e) {
+            if (session.status === 'PAUSED' || session.status === 'FINISHED') return;
+
+            if (session.status === 'IDLE') {
+                startSession();
+            }
+
+            const inputEl = e.target;
+
+            if (session.inputMode === 'romaji') {
+                // Convert ASCII Romaji stream into Hiragana + pending romaji buffer
+                const converted = convertRomajiStream(inputEl.value);
+                const reconstructedInput = converted.kana + converted.pending;
+                if (inputEl.value !== reconstructedInput) {
+                    inputEl.value = reconstructedInput;
+                }
+                session.pendingRomaji = converted.pending;
+
+                const targetLen = session.currentPrompt.kana.length;
+                if (converted.kana.length > targetLen) {
+                    const trimmed = converted.kana.slice(0, targetLen);
+                    inputEl.value = trimmed;
+                    session.pendingRomaji = '';
+                    evaluateConfirmedInput(trimmed, trimmed.length);
+                    return;
+                }
+
+                evaluateConfirmedInput(converted.kana, converted.kana.length);
+            } else {
+                // Direct Japanese IME mode
+                const rawVal = inputEl.value;
+                if (session.isComposingIME) {
+                    // While user is composing Kana -> Kanji, only evaluate already-confirmed prefix!
+                    const confirmedPrefixLen = session.currentTypedLength;
+                    renderCurrentPrompt(rawVal, confirmedPrefixLen);
+                } else {
+                    const targetLen = session.currentPrompt.text.length;
+                    const clamped = rawVal.length > targetLen ? rawVal.slice(0, targetLen) : rawVal;
+                    if (clamped !== rawVal) inputEl.value = clamped;
+                    evaluateConfirmedInput(clamped, clamped.length);
+                }
+            }
+        }
+
+        /* =========================================================
+           10. CPM & ACCURACY CALCULATIONS
+           ========================================================= */
+        function calculateMetrics() {
+            const totalCorrect = session.completedCorrectChars + session.currentCorrectChars;
+            const totalIncorrect = session.completedIncorrectChars + session.currentIncorrectChars;
+            const totalTyped = session.completedTotalTyped + session.currentTypedLength;
+
+            let elapsedSec = 1;
+            if (session.startTimestamp) {
+                const activePause = (session.status === 'PAUSED' && session.pauseStartMs)
+                    ? (performance.now() - session.pauseStartMs)
+                    : 0;
+                const rawElapsed = (performance.now() - session.startTimestamp - session.pausedAccumulatedMs - activePause) / 1000;
+                elapsedSec = session.duration === 0
+                    ? Math.max(1, rawElapsed)
+                    : Math.max(1, Math.min(session.duration, rawElapsed));
+            }
+            if (session.duration > 0 && session.timeLeft === 0) {
+                elapsedSec = session.duration;
+            }
+
+            const elapsedMinutes = elapsedSec / 60;
+            // Japanese typing standard: CPM (Correct Japanese Characters Per Minute)
+            const cpm = Math.max(0, Math.round(totalCorrect / elapsedMinutes));
+
+            const accuracy = totalTyped > 0
+                ? Math.round((totalCorrect / totalTyped) * 100)
+                : 100;
+
+            return { cpm, accuracy, totalCorrect, totalIncorrect, totalTyped };
+        }
+
+        function updateLiveMetrics() {
+            const { cpm, accuracy, totalCorrect, totalIncorrect, totalTyped } = calculateMetrics();
+            document.getElementById('statCpm').textContent = cpm;
+            document.getElementById('statAccuracy').textContent = `${accuracy}%`;
+            document.getElementById('statCorrect').textContent = totalCorrect;
+            document.getElementById('statIncorrect').textContent = totalIncorrect;
+            document.getElementById('statTotal').textContent = totalTyped;
+        }
+
+        function finishSession() {
+            if (session.status === 'FINISHED' || session.status === 'IDLE') return;
+
+            clearInterval(session.timerInterval);
+            session.status = 'FINISHED';
+            session.isComposingIME = false;
+            document.getElementById('imeComposingBadge').classList.add('hidden');
+            document.getElementById('typingInput').disabled = true;
+            document.getElementById('pauseOverlay').classList.add('hidden');
+            updateControlButtons();
+
+            const metrics = calculateMetrics();
+            playTone('finish');
+            triggerMascotCheer();
+
+            // Calculate Stars Earned (0 to 3 stars based on Japanese CPM & Accuracy)
+            let starsEarned = 1;
+            if (metrics.totalTyped < 5) {
+                starsEarned = 0;
+            } else if (metrics.cpm >= 140 && metrics.accuracy >= 94) {
+                starsEarned = 3;
+            } else if (metrics.cpm >= 75 && metrics.accuracy >= 88) {
+                starsEarned = 2;
+            }
+
+            // Daily Quest Check
+            let dailyBonus = 0;
+            const today = getTodayKey();
+            if (session.isDailyQuest && metrics.totalTyped >= 15 && metrics.accuracy >= 92 && appData.dailyCompletedDate !== today) {
+                appData.dailyCompletedDate = today;
+                dailyBonus = 5;
+                updateDailyQuestUI();
+            }
+
+            const totalAwarded = starsEarned + dailyBonus;
+            appData.totalStars += totalAwarded;
+
+            // Personal Bests
+            let isNewRecord = false;
+            if (metrics.totalTyped >= 10 && metrics.cpm > appData.bestCpm) {
+                appData.bestCpm = metrics.cpm;
+                isNewRecord = true;
+            }
+            if (metrics.totalTyped >= 10 && metrics.accuracy > appData.bestAccuracy) {
+                appData.bestAccuracy = metrics.accuracy;
+            }
+
+            // Save to History
+            if (metrics.totalTyped > 0) {
+                appData.history.unshift({
+                    date: new Date().toLocaleString('ja-JP', { month: 'short', day: 'numeric', hour: '2-digit', minute: '2-digit' }),
+                    inputMode: session.inputMode === 'romaji' ? 'ローマ字' : 'IME直接',
+                    level: getLevelLabel(session.level),
+                    duration: session.duration === 0 ? '無制限' : `${session.duration}秒`,
+                    cpm: metrics.cpm,
+                    accuracy: metrics.accuracy,
+                    stars: totalAwarded
+                });
+                if (appData.history.length > 50) appData.history.pop();
+            }
+
+            const newlyUnlocked = evaluateAchievements(metrics);
+            saveData();
+            updateHeaderStats();
+            showSummaryModal(metrics, starsEarned, dailyBonus, isNewRecord, newlyUnlocked);
+        }
+
+        function evaluateAchievements(metrics) {
+            const newlyUnlocked = [];
+            const unlock = (id) => {
+                if (!appData.unlockedBadges.includes(id)) {
+                    appData.unlockedBadges.push(id);
+                    const b = ACHIEVEMENTS.find(x => x.id === id);
+                    if (b) newlyUnlocked.push(b.title);
+                }
+            };
+
+            if (appData.history.length >= 1) unlock('first_step');
+            if (metrics.cpm >= 80) unlock('cpm_80');
+            if (metrics.cpm >= 150) unlock('cpm_150');
+            if (metrics.cpm >= 220) unlock('cpm_220');
+            if (metrics.totalTyped >= 15 && metrics.accuracy >= 95) unlock('acc_95');
+            if (session.inputMode === 'ime' && metrics.totalTyped >= 10) unlock('ime_master');
+            if (session.level === 'advanced' && metrics.totalTyped >= 15) unlock('adv_clear');
+            if (appData.history.length >= 5) unlock('sessions_5');
+
+            return newlyUnlocked;
+        }
+
+        function updateControlButtons() {
+            const startBtn = document.getElementById('startBtn');
+            const pauseBtn = document.getElementById('pauseBtn');
+            const finishBtn = document.getElementById('finishBtn');
+
+            if (session.status === 'IDLE') {
+                startBtn.disabled = false;
+                startBtn.innerHTML = '▶ スタート';
+                pauseBtn.disabled = true;
+                pauseBtn.innerHTML = '⏸ 一時停止';
+                finishBtn.disabled = true;
+            } else if (session.status === 'RUNNING') {
+                startBtn.disabled = true;
+                pauseBtn.disabled = false;
+                pauseBtn.innerHTML = '⏸ 一時停止';
+                finishBtn.disabled = false;
+            } else if (session.status === 'PAUSED') {
+                startBtn.disabled = false;
+                startBtn.innerHTML = '▶ 再開';
+                pauseBtn.disabled = false;
+                pauseBtn.innerHTML = '▶ 再開';
+                finishBtn.disabled = false;
+            } else if (session.status === 'FINISHED') {
+                startBtn.disabled = false;
+                startBtn.innerHTML = '▶ スタート';
+                pauseBtn.disabled = true;
+                finishBtn.disabled = true;
+            }
+        }
+
+        /* =========================================================
+           11. MASCOT REACTIONS & SUMMARY MODAL
+           ========================================================= */
+        function setMascotMood(mood, text) {
+            document.getElementById('mascotSpeech').textContent = text;
+            const normal = document.getElementById('mascotEyesNormal');
+            const happy = document.getElementById('mascotEyesHappy');
+            if (mood === 'happy') {
+                normal.classList.add('hidden');
+                happy.classList.remove('hidden');
+            } else {
+                normal.classList.remove('hidden');
+                happy.classList.add('hidden');
+            }
+        }
+
+        function triggerMascotCheer() {
+            const c = document.getElementById('mascotContainer');
+            c.classList.remove('mascot-cheer');
+            void c.offsetWidth;
+            c.classList.add('mascot-cheer');
+            setMascotMood('happy', document.getElementById('mascotSpeech').textContent);
+        }
+
+        function showSummaryModal(metrics, starsEarned, dailyBonus, isNewRecord, newlyUnlocked) {
+            document.getElementById('summaryModal').classList.remove('hidden');
+
+            let starsHtml = '';
+            for (let i = 1; i <= 3; i++) {
+                starsHtml += i <= starsEarned ? '⭐' : '<span class="opacity-25">⭐</span>';
+            }
+            document.getElementById('modalStarsDisplay').innerHTML = starsHtml;
+
+            let title = 'ナイスチャレンジ！';
+            let msg = '毎日の積み重ねが日本語タイピング上達の近道だよ！';
+            if (starsEarned === 3) {
+                title = 'キラキラ・スーパースター！';
+                msg = 'すごいスピードと正確さ！ホシミも大感動しているよ！';
+            } else if (starsEarned === 2) {
+                title = 'とってもいい調子！';
+                msg = '安定したリズムで入力できたね！次は3つ星を目指そう！';
+            }
+
+            document.getElementById('modalTitle').textContent = title;
+            document.getElementById('modalEncouragement').textContent = msg;
+
+            const banner = document.getElementById('modalSpecialBanner');
+            const highlights = [];
+            if (isNewRecord) highlights.push('🎉 自己ベストCPM更新！');
+            if (dailyBonus > 0) highlights.push('🌟 デイリークエスト達成 (+5 ⭐)');
+            if (newlyUnlocked.length > 0) highlights.push(`🏅 バッジ獲得: ${newlyUnlocked.join(', ')}`);
+
+            if (highlights.length > 0) {
+                banner.textContent = highlights.join(' • ');
+                banner.classList.remove('hidden');
+            } else {
+                banner.classList.add('hidden');
+            }
+
+            document.getElementById('sumCpm').textContent = `${metrics.cpm} CPM`;
+            document.getElementById('sumAccuracy').textContent = `${metrics.accuracy}%`;
+            document.getElementById('sumCorrect').textContent = metrics.totalCorrect;
+            document.getElementById('sumIncorrect').textContent = metrics.totalIncorrect;
+            document.getElementById('sumPrompts').textContent = `${session.promptsCompleted} 問`;
+        }
+
+        function closeSummaryModal(shouldReset) {
+            document.getElementById('summaryModal').classList.add('hidden');
+            if (shouldReset) {
+                resetSession(false);
+                focusTypingInput();
+            }
+        }
+
+        /* =========================================================
+           12. DASHBOARD, CHART, BADGES & HISTORY
+           ========================================================= */
+        function renderDashboard() {
+            document.getElementById('dashBestCpm').textContent = `${appData.bestCpm} CPM`;
+            document.getElementById('dashBestAcc').textContent = `${appData.bestAccuracy}%`;
+            document.getElementById('dashTotalStars').textContent = `${appData.totalStars} ⭐`;
+            document.getElementById('dashTotalSessions').textContent = `${appData.history.length}回`;
+
+            const chartEl = document.getElementById('progressChartContainer');
+            const recent = appData.history.slice(0, 10).reverse();
+
+            if (recent.length === 0) {
+                chartEl.innerHTML = `<div class="w-full h-full flex items-center justify-center text-sm font-bold text-[var(--text-muted)]">練習を完了するとスピードのグラフが表示されます ✨</div>`;
+                document.getElementById('avgCpmBadge').textContent = '平均: 0 CPM';
+            } else {
+                const avgCpm = Math.round(recent.reduce((acc, r) => acc + r.cpm, 0) / recent.length);
+                document.getElementById('avgCpmBadge').textContent = `平均: ${avgCpm} CPM`;
+
+                const maxCpm = Math.max(100, ...recent.map(r => r.cpm));
+                chartEl.innerHTML = recent.map((item, idx) => {
+                    const hPct = Math.max(14, Math.round((item.cpm / maxCpm) * 100));
+                    return `
+                        <div class="flex-1 flex flex-col items-center justify-end h-full group">
+                            <span class="text-[11px] font-extrabold text-[var(--primary)] mb-1">${item.cpm}</span>
+                            <div class="w-full max-w-[36px] rounded-t-xl bg-gradient-to-t from-[var(--primary)] to-[var(--accent)] transition-all duration-300 group-hover:brightness-110" style="height: ${hPct}%;" title="${item.cpm} CPM (${item.accuracy}%)"></div>
+                            <span class="text-[10px] font-bold text-[var(--text-muted)] mt-1">#${idx + 1}</span>
+                        </div>
+                    `;
+                }).join('');
+            }
+
+            // Render Badges
+            const badgesGrid = document.getElementById('badgesGrid');
+            document.getElementById('badgeProgressLabel').textContent = `${appData.unlockedBadges.length} / ${ACHIEVEMENTS.length} 獲得`;
+
+            badgesGrid.innerHTML = ACHIEVEMENTS.map(b => {
+                const unlocked = appData.unlockedBadges.includes(b.id);
+                return `
+                    <div class="p-4 rounded-2xl border-2 transition ${unlocked ? 'bg-white border-[var(--primary)] shadow-sm' : 'bg-[var(--cream)]/60 border-[var(--card-border)] opacity-60 grayscale'}">
+                        <div class="flex items-center gap-3">
+                            <div class="w-11 h-11 rounded-2xl ${unlocked ? 'bg-[var(--primary-soft)]' : 'bg-slate-200/70'} flex items-center justify-center text-2xl shrink-0">
+                                ${b.icon}
+                            </div>
+                            <div>
+                                <div class="font-bold text-sm text-[var(--text-main)]">${b.title}</div>
+                                <div class="text-xs text-[var(--text-muted)] leading-snug">${b.desc}</div>
+                            </div>
+                        </div>
+                    </div>
+                `;
+            }).join('');
+
+            // Render History Table
+            const tbody = document.getElementById('historyTableBody');
+            if (appData.history.length === 0) {
+                tbody.innerHTML = `
+                    <tr>
+                        <td colspan="7" class="py-8 text-center text-sm text-[var(--text-muted)]">
+                            まだ練習記録がありません。「練習」タブからスタートしよう！🌟
+                        </td>
+                    </tr>
+                `;
+            } else {
+                tbody.innerHTML = appData.history.map(row => `
+                    <tr class="hover:bg-[var(--primary-soft)]/35 transition">
+                        <td class="py-3 px-3 text-xs text-[var(--text-muted)]">${escapeHtml(row.date)}</td>
+                        <td class="py-3 px-3"><span class="px-2 py-0.5 rounded-lg bg-[var(--secondary-soft)] text-sky-700 text-xs font-bold">${escapeHtml(row.inputMode)}</span></td>
+                        <td class="py-3 px-3 text-xs font-bold">${escapeHtml(row.level)}</td>
+                        <td class="py-3 px-3 text-xs">${escapeHtml(row.duration)}</td>
+                        <td class="py-3 px-3 font-display font-bold text-[var(--primary)]">${row.cpm} CPM</td>
+                        <td class="py-3 px-3 font-bold text-purple-600">${row.accuracy}%</td>
+                        <td class="py-3 px-3 text-amber-500 font-bold">+${row.stars} ⭐</td>
+                    </tr>
+                `).join('');
+            }
+        }
+
+        function clearHistoryPrompt() {
+            document.getElementById('confirmClearModal').classList.remove('hidden');
+        }
+
+        function executeClearHistory() {
+            appData.totalStars = 0;
+            appData.bestCpm = 0;
+            appData.bestAccuracy = 0;
+            appData.history = [];
+            appData.unlockedBadges = [];
+            appData.dailyCompletedDate = null;
+            saveData();
+            updateHeaderStats();
+            updateDailyQuestUI();
+            renderDashboard();
+            document.getElementById('confirmClearModal').classList.add('hidden');
+        }
+
+        /* =========================================================
+           13. EVENT LISTENERS (INCLUDING JAPANESE IME COMPOSITION)
+           ========================================================= */
+        document.addEventListener('DOMContentLoaded', () => {
+            loadSavedData();
+            resetSession(false);
+
+            const typingInput = document.getElementById('typingInput');
+
+            // Track Japanese IME composition lifecycle properly
+            typingInput.addEventListener('compositionstart', () => {
+                session.isComposingIME = true;
+                if (session.inputMode === 'ime') {
+                    document.getElementById('imeComposingBadge').classList.remove('hidden');
+                }
+            });
+
+            typingInput.addEventListener('compositionend', (e) => {
+                session.isComposingIME = false;
+                document.getElementById('imeComposingBadge').classList.add('hidden');
+                // Once the user confirms Kanji/Kana conversion, evaluate the confirmed text
+                if (session.inputMode === 'ime') {
+                    const targetLen = session.currentPrompt.text.length;
+                    const clamped = e.target.value.length > targetLen
+                        ? e.target.value.slice(0, targetLen)
+                        : e.target.value;
+                    if (clamped !== e.target.value) e.target.value = clamped;
+                    evaluateConfirmedInput(clamped, clamped.length);
+                }
+            });
+
+            typingInput.addEventListener('input', handleInputEvent);
+        });
+    </script>
+</body>
+</html>
